@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EmailServers>
+  <list>
+    <SMTP>gmail,Outlook,Office365,YahooMail,YahooMailPlus,YahooUK,O2.UK,BTConnect,BTOpenWorld,BTInternet,Orange,Hotmail,TalkTalk,Vodafone</SMTP>
+  </list>
+  <apn>
+    <gmail>smtp.gmail.com</gmail>
+    <Outlook>smtp.live.com</Outlook>
+    <Office365>smtp.office365.com</Office365>  
+    <YahooMail>smtp.mail.yahoo.com</YahooMail> 
+    <YahooMailPlus>plus.smtp.mail.yahoo.com</YahooMailPlus>  
+    <YahooUK>smtp.yahoo.co.uk</YahooUK>    
+    <O2.UK>smtp.02.co.uk</O2.UK>  
+    <BTConnect>pop3.btconnect.com</BTConnect>  
+    <BTOpenWorld>mail.btopenworld.com</BTOpenWorld> 
+    <BTInternet>mail.btinternet.com</BTInternet> 
+    <Orange>mail.orange.com</Orange> 
+    <Hotmail>smtp.live.com</Hotmail>
+    <TalkTalk>mail.talktalk.net</TalkTalk>
+    <Vodafone>send.vodafone.net</Vodafone>
+  </apn>
+</EmailServers>

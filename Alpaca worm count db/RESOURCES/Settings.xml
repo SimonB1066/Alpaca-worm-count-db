@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+  <Global>
+    <OnFarm>1</OnFarm>
+    <PassRate>200</PassRate>
+    <Email>aig1066@hotmail.co.uk</Email>
+    <EmailUsername>aig1066@hotmail.co.uk</EmailUsername>
+    <EmailPassword>I1RodW5kZXIxIw==</EmailPassword>
+    <EmailServer>smtp-mail.outlook.com</EmailServer>
+    <BackupNumber>2</BackupNumber>
+  </Global>
+</Settings>
