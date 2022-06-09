@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+  <Global>
+    <FarmName>Lower Mullacott Farm</FarmName>
+    <OnFarm>1</OnFarm>
+    <PassRate>200</PassRate>
+    <PacaMan />
+    <PacaManInstalled>False</PacaManInstalled>
+    <Stoll>False</Stoll>
+    <ColourEnable>False</ColourEnable>
+    <Email>aig1066@hotmail.co.uk</Email>
+    <EmailUsername>wdb@mullacottalpacas.com</EmailUsername>
+    <EmailPassword>꽼࿉ఞᶭ롷蒩뿳钪⼭倘箍鰯岔ᐏ걻攺</EmailPassword>
+    <EmailServer>webmail.netenergy.uk</EmailServer>
+    <BackupNumber>6</BackupNumber>
+    <ReTestPeriod>0</ReTestPeriod>
+    <ReTestAddedTime>0</ReTestAddedTime>
+    <Messages>False</Messages>
+    <ReminderState>False</ReminderState>
+    <Max>False</Max>
+    <Boot>True</Boot>
+    <BackEndLocation>C:\WormCountDATA\</BackEndLocation>
+    <ColourLevel1>0</ColourLevel1>
+    <ColourLevel2>0</ColourLevel2>
+    <ColourLevel3>0</ColourLevel3>
+    <ColourLevel4>0</ColourLevel4>
+    <ColourLevel5>0</ColourLevel5>
+    <ColourLevel6>0</ColourLevel6>
+    <ColourLevel7>0</ColourLevel7>
+    <ColourLevel8>0</ColourLevel8>
+    <ColourLevel9>0</ColourLevel9>
+    <ColourLevel10>0</ColourLevel10>
+    <BiasEnable>True</BiasEnable>
+    <EggTypeName1>Trichostrongyles</EggTypeName1>
+    <EggTypeName2>Trichurius</EggTypeName2>
+    <EggTypeName3>Nematordirus</EggTypeName3>
+    <EggTypeName4>Capillarid</EggTypeName4>
+    <EggTypeName5>Moniezid</EggTypeName5>
+    <EggTypeName6>E-mac</EggTypeName6>
+    <EggTypeName7>E-ivitaesis</EggTypeName7>
+    <EggTypeName8>E-alpacae</EggTypeName8>
+    <EggTypeName9>E-lamae</EggTypeName9>
+    <EggTypeName10>E-punoensis</EggTypeName10>
+    <EggTypeBias1>0</EggTypeBias1>
+    <EggTypeBias2>0</EggTypeBias2>
+    <EggTypeBias3>0</EggTypeBias3>
+    <EggTypeBias4>0</EggTypeBias4>
+    <EggTypeBias5>0</EggTypeBias5>
+    <EggTypeBias6>0</EggTypeBias6>
+    <EggTypeBias7>0</EggTypeBias7>
+    <EggTypeBias8>0</EggTypeBias8>
+    <EggTypeBias9>0</EggTypeBias9>
+    <EggTypeBias10>0</EggTypeBias10>
+  </Global>
+</Settings>

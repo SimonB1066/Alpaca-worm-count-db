@@ -1,0 +1,586 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DFB14EC8-3515-4DBB-A9FD-D830FC9D72AA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>WindowsApplication1.My.MyApplication</StartupObject>
+    <RootNamespace>WindowsApplication1</RootNamespace>
+    <AssemblyName>Alpaca worm count db</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\WormCountDatabase\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <ProductName>Alpaca Worm Count db</ProductName>
+    <PublisherName>Simon brookes, Mullacott Alpacas</PublisherName>
+    <SuiteName>Mullacott Alpacas</SuiteName>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationVersion>9.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Alpaca worm count db.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Alpaca worm count db.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>BBFD8134D27BDEC4DAF3CEB42B675D40A7D82DB6</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Alpaca worm count db_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>WDB.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression">
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\System.IO.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem">
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\System.IO.Compression.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.IO.Compression" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="DataBaseFunctions.vb" />
+    <Compile Include="clsComputerInfo.vb" />
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb" />
+    <Compile Include="Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestHistoryStoll.Designer.vb">
+      <DependentUpon>FormTestHistoryStoll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestHistoryStoll.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestMS.Designer.vb">
+      <DependentUpon>FormTestMS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestMS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddReminder.Designer.vb">
+      <DependentUpon>FormAddReminder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddReminder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEmail.Designer.vb">
+      <DependentUpon>FormEmail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormEmail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReminder.Designer.vb">
+      <DependentUpon>FormReminder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormReminder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNote.Designer.vb">
+      <DependentUpon>FormNote.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormNote.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAbout.Designer.vb">
+      <DependentUpon>FormAbout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAbout.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAnimalDelete.Designer.vb">
+      <DependentUpon>FormAnimalDelete.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAnimalDelete.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBackup.Designer.vb">
+      <DependentUpon>FormBackup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBackup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSettings.Designer.vb">
+      <DependentUpon>FormSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGroupTestReport.Designer.vb">
+      <DependentUpon>FormGroupTestReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormGroupTestReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAlpaca.Designer.vb">
+      <DependentUpon>FormAlpaca.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAlpaca.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGraphAnimal.Designer.vb">
+      <DependentUpon>FormGraphAnimal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormGraphAnimal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGraphGroup.Designer.vb">
+      <DependentUpon>FormGraphGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormGraphGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewGroup.Designer.vb">
+      <DependentUpon>FormNewGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPass.Designer.vb">
+      <DependentUpon>FormPass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPass.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnimal.Designer.vb">
+      <DependentUpon>FormNewAnimal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnimal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestHistory.Designer.vb">
+      <DependentUpon>FormTestHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAlpacaManager.Designer.vb">
+      <DependentUpon>FormAlpacaManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAlpacaManager.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\Module1.vb" />
+    <Compile Include="My Project\SplashScreen1.Designer.vb">
+      <DependentUpon>SplashScreen1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\SplashScreen1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.vb" />
+    <Compile Include="FormTestMM.Designer.vb">
+      <DependentUpon>FormTestMM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestMM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.vb">
+      <DependentUpon>FormMain.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="UploadFileToWeb.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddReminder.resx">
+      <DependentUpon>FormAddReminder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEmail.resx">
+      <DependentUpon>FormEmail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNote.resx">
+      <DependentUpon>FormNote.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAnimalDelete.resx">
+      <DependentUpon>FormAnimalDelete.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBackup.resx">
+      <DependentUpon>FormBackup.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReminder.resx">
+      <DependentUpon>FormReminder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettings.resx">
+      <DependentUpon>FormSettings.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGroupTestReport.resx">
+      <DependentUpon>FormGroupTestReport.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAlpaca.resx">
+      <DependentUpon>FormAlpaca.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGraphAnimal.resx">
+      <DependentUpon>FormGraphAnimal.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGraphGroup.resx">
+      <DependentUpon>FormGraphGroup.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewGroup.resx">
+      <DependentUpon>FormNewGroup.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPass.resx">
+      <DependentUpon>FormPass.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnimal.resx">
+      <DependentUpon>FormNewAnimal.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestHistory.resx">
+      <DependentUpon>FormTestHistory.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestHistoryStoll.resx">
+      <DependentUpon>FormTestHistoryStoll.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestMM.resx">
+      <DependentUpon>FormTestMM.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAlpacaManager.resx">
+      <DependentUpon>FormAlpacaManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestMS.resx">
+      <DependentUpon>FormTestMS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <Content Include="InstallUtil.exe.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Egg Count Test Results %28Individual%29.docx" />
+    <Content Include="InstallUtil.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="InstallUtilLib.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\About.png" />
+    <None Include="Resources\Form.ico" />
+    <None Include="Resources\Update.png" />
+    <None Include="Resources\Refresh.png" />
+    <None Include="Resources\Email.png" />
+    <None Include="Resources\printer.png" />
+    <None Include="Resources\Report.png" />
+    <None Include="Resources\Today.png" />
+    <None Include="Resources\Alert.png" />
+    <Content Include="My Project\wdb.html" />
+    <None Include="Resources\Cancel.png" />
+    <None Include="Resources\Save.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\Backup1.png" />
+    <None Include="Resources\Add.png" />
+    <None Include="Resources\TestEmail.png" />
+    <None Include="Resources\Pass.png" />
+    <None Include="Resources\HeaderIcon.png" />
+    <None Include="Resources\Prev.png" />
+    <None Include="Resources\Next.png" />
+    <None Include="Resources\Splash1.png" />
+    <None Include="Resources\PacaMan.bmp" />
+    <None Include="Resources\EmailSending.gif" />
+    <None Include="Resources\Sending.gif" />
+    <None Include="Resources\Stoll1.png" />
+    <None Include="Resources\Stoll2.png" />
+    <Content Include="Resources\WalkingAlpaca.gif" />
+    <None Include="Resources\World.png" />
+    <None Include="Resources\x.gif" />
+    <None Include="Resources\Windows1.png" />
+    <None Include="Resources\Windows11.png" />
+    <Content Include="Service\AWC.exe.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Service\Install.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Service\UnInstall.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Service\AWC.exe.manifest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="WormCount.ldb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Trichostrongyles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.3.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 3.5 SP2</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Header.png" />
+    <Content Include="MailServer.xml" />
+    <Content Include="MULLACOTT-ALPACAS-HEADER.png" />
+    <Content Include="Service\AWC.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Service\AWC.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Service\AWC.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Settings.xml" />
+    <Content Include="WormCount.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WormCountdb.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="OffFarmIco.png" />
+    <None Include="OnFarmIco.png" />
+    <None Include="Resources\Header.png" />
+    <None Include="Resources\screenshot.png" />
+    <None Include="backup.gif" />
+    <None Include="WalkingAlpacaDoor.gif" />
+    <None Include="WalkingAlpacaExit.gif" />
+    <None Include="Resources\46695920_1960728647339428_3274489732259643392_n.jpg" />
+    <None Include="Resources\46695920_1960728647339428_3274489732259643392_n %281%29.ico" />
+    <None Include="Resources\Message.jpg" />
+    <None Include="Resources\WormCount.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Settings.xml" />
+    <None Include="Resources\Calander.png" />
+    <None Include="Resources\Information.png" />
+    <None Include="Resources\Information1.ico" />
+    <None Include="Resources\Paper.png" />
+    <None Include="Resources\TextFile1.txt" />
+    <Content Include="WDB.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ADOX">
+      <Guid>{00000600-0000-0010-8000-00AA006D2EA4}</Guid>
+      <VersionMajor>6</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="NetFwTypeLib">
+      <Guid>{58FBCF7C-E7A9-467C-80B3-FC65E8FCCA08}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Microsoft.VisualBasic.PowerPacks.Vs">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
