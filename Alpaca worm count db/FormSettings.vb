@@ -123,6 +123,8 @@ Public Class FormSettings
         End If
 
 
+
+        'New settings
         TextBox2.Text = GlobalVariables.Email
         TextBox6.Text = GlobalVariables.FarmName
         TextBox13.Text = GlobalVariables.EmailServer
