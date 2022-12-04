@@ -1,47 +1,41 @@
-﻿
-
+﻿Imports System.Threading
+Imports System.Net.Mail
+Imports System.IO
 Public Class FormGroupTestReport
 
     Dim ReportGroup As String
     Dim Animal As String
-
+    Dim Searchfrom As String
+    Dim SearchTo As String
+    Dim BuildingInProgress As Boolean
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs)
         Me.Close()
     End Sub
-
     Private Sub FormAlpaca_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         CenterToScreen()
         Me.Icon = My.Resources.Form
 
 
     End Sub
-
     Private Sub ToolStrip1_MouseHover(sender As Object, e As EventArgs) Handles ToolStrip1.MouseHover
         Me.Cursor = Cursors.Hand '
     End Sub
     Private Sub ToolStrip1_MouseLeave(sender As Object, e As EventArgs) Handles ToolStrip1.MouseLeave
         Me.Cursor = Cursors.Arrow
     End Sub
-
     Private Sub CheckedListBox1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles CheckedListBox1.SelectedIndexChanged
         ReportGroup = " "
         For Each indexChecked In CheckedListBox1.CheckedIndices
             ' The indexChecked variable contains the index of the item.
             ReportGroup += Convert.ToString(CheckedListBox1.Items(indexChecked)) & ","
-
         Next
-
-
-
-
+        BuildReport()
     End Sub
-
-
     Private Sub BuildReport()
 
         Try
-            FormMain.ConnectedDB = New DataBaseFunctions()              'Open the database connection
-            GlobalVariables.ds = FormMain.ConnectedDB.PopulateDataSet()        'Put the datainto a dataset
+            FormMain.ConnectedDB = New DataBaseFunctions()                      'Open the database connection
+            GlobalVariables.ds = FormMain.ConnectedDB.PopulateDataSet()         'Put the datainto a dataset
 
             Dim site As String = GlobalVariables.AlpacaName
             Dim SelectedPicture As String = GlobalVariables.DbDriveLocation & "Header.png"
@@ -79,134 +73,171 @@ Public Class FormGroupTestReport
 
             'Get a list of all the test groups
             For Each dr As DataRow In GlobalVariables.ds.Tables("TestGroup").Rows
-
                 Group = dr.ItemArray(1)
-
-
                 'Check that the entry is in the group and also the animal is in that report
                 If ReportGroup.Contains(Group) Then  'ReportGroup is the checkbox selection on the form
                     'Now get the data
                     RichTextBox1.AppendText("Test period--" & Group & vbNewLine & vbNewLine)
                     RichTextBox1.AppendText("Name              Test date      Total EPG" & vbNewLine)
+                    Dim data() As DataRow
 
-                    SortTestDb(Group)
 
+                    'Now strip out the dubplicate animal test
+                    Dim CountOfRows As Integer
+                    Dim dtDistinct As DataTable = GlobalVariables.ds.Tables("TestResults").Clone
+                    Dim dtDuplicates = dtDistinct.Clone
+
+
+                    For Each drow As DataRow In GlobalVariables.ds.Tables("TestResults").Select("TestNumberName='" & Group & "'", "EPGTotal DESC")
+                        CountOfRows = GlobalVariables.ds.Tables("TestResults").Compute("Count([TestName])", "TestNumberName='" & Group & "' AND TestName='" & drow.ItemArray(2) & "'")
+                        If CountOfRows > 1 Then
+                            dtDuplicates.Rows.Add(drow.ItemArray)
+                        Else
+                            dtDistinct.Rows.Add(drow.ItemArray)
+                        End If
+                    Next
+
+                    dtDuplicates.DefaultView.Sort = "TestDate DESC"
+                    dtDuplicates = dtDuplicates.DefaultView.ToTable
+
+                    Dim dtDuplicatesRow() As DataRow = dtDuplicates.Select()
+                    Dim dtHolding = dtDuplicates.Clone
+                    dtHolding.Clear()
+
+                    'Now get the latest test from the duplicates and add the record to the distinct
+                    Dim dup As Integer = -1
+                    Dim LatestTest As Integer = 0
+                    For Each eachAnimal As DataRow In dtDuplicates.Select()
+                        dup = 0
+                        LatestTest = -1
+                        For Each DuplicatesList As DataRow In dtDuplicates.Select()
+
+                            If DuplicatesList.ItemArray(2) = eachAnimal.ItemArray(2) Then
+                                'Check the test date and it larger add to distinct
+                                Dim foundRow() As DataRow
+                                foundRow = dtHolding.Select("TestName='" & eachAnimal.ItemArray(2) & "'")
+                                If foundRow.Length = 0 Then
+                                    If DuplicatesList.ItemArray(1) > eachAnimal.ItemArray(1) Then
+                                        LatestTest = dup
+                                        dtHolding.Rows.Add(DuplicatesList.ItemArray)
+
+                                    End If
+                                End If
+                            End If
+                            dup = dup + 1
+                        Next
+                    Next
+
+                    'Now finaly move the holding data into the distinct datatable
+                    For Each dtHoldingList As DataRow In dtHolding.Select()
+                        dtDistinct.Rows.Add(dtHoldingList.ItemArray)
+                    Next
+                    dtDistinct.DefaultView.Sort = "EPGTotal DESC"
+                    dtDistinct = dtDistinct.DefaultView.ToTable
+                    Dim dtDistinctRow() As DataRow = dtDistinct.Select()
+                    data = dtDistinctRow.Clone
+                    NumberOfTest = data.Length - 1
 
                     RichTextBox1.AppendText("_____________________________________________________________________________" & vbNewLine)
-                    For j = 0 To GlobalVariables.ds.Tables("TestResults").Rows.Count - 1
-                        Total = Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEPGTotal")) + Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestOPGTotal"))
+                    For j = 0 To NumberOfTest
                         Eggs = 0
                         strEggs = ""
 
+                        If Animal.Contains(data(j).ItemArray(2)) Then
 
 
-                        'Check the test result from the dataqbase is in the current group date
-                        If GlobalVariables.ds.Tables("TestResults").Rows(j)("TestNumberName") = Group Then
+
+                            'Now build the string name animal first the the test name and last the result and type of egg found
+                            Dim str As String = "  "
+                            str = str & data(j).ItemArray(2)
+                            str = str.PadRight(20, " ")
+                            str = str & data(j).ItemArray(1).ToString.Substring(0, 10)
+                            str = str.PadRight(35, " ")
+                            str = str & CInt(data(j).ItemArray(6)) + CInt(data(j).ItemArray(7))
+                            str = str.PadRight(40, " ")
 
 
-                            'Animal is a list of the animals ticked in the checkbox selection in the form.
-                            If Animal.Contains(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestName")) Then
-
-                                'Now build the string name animal first the the test name and last the result and type of egg found
-                                Dim str As String = "  "
-                                'If j > 1 Then
-                                'If GlobalVariables.ds.Tables("TestResults").Rows(j)("TestName") = GlobalVariables.ds.Tables("TestResults").Rows(j - 1)("TestName") Then
-                                'str = str.PadRight(20, " ")
-
-                                'Else
-                                str = str & GlobalVariables.ds.Tables("TestResults").Rows(j)("TestName")
-                                str = str.PadRight(20, " ")
-                                ' End If
-                                'End If
-
-                                str = str & GlobalVariables.ds.Tables("TestResults").Rows(j)("TestDate").ToString.Substring(0, 10)
-                                str = str.PadRight(35, " ")
-
-                                str = str & Total.ToString
-                                str = str.PadRight(40, " ")
-
-
-                                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestTrichostrongyles")) > 0 Then
-                                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestTrichostrongyles").ToString.Substring(0, 2))
-                                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestTrichostrongyles").ToString.Substring(2, 2))
-                                    strEggs = AddEggString(str, strEggs, Eggs, "..Trichostrongyles   ")
-                                End If
-
-                                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestTrichurius")) > 0 Then
-                                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestTrichurius").ToString.Substring(0, 2))
-                                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestTrichurius").ToString.Substring(2, 2))
-                                    strEggs = AddEggString(str, strEggs, Eggs, "..Trichurius   ")
-                                End If
-
-                                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestNematordirus")) > 0 Then
-                                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestNematordirus").ToString.Substring(0, 2))
-                                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestNematordirus").ToString.Substring(2, 2))
-                                    strEggs = AddEggString(str, strEggs, Eggs, "..Nematordirus   ")
-                                End If
-
-                                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestCapillarid")) > 0 Then
-                                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestCapillarid").ToString.Substring(0, 2))
-                                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestCapillarid").ToString.Substring(2, 2))
-                                    strEggs = AddEggString(str, strEggs, Eggs, "..Capillarid   ")
-                                End If
-
-                                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestMoniezid")) > 0 Then
-                                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestMoniezid").ToString.Substring(0, 2))
-                                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestMoniezid").ToString.Substring(2, 2))
-                                    strEggs = AddEggString(str, strEggs, Eggs, "..Moniezid   ")
-                                End If
-
-                                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEmac")) > 0 Then
-                                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEmac").ToString.Substring(0, 2))
-                                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEmac").ToString.Substring(2, 2))
-                                    strEggs = AddEggString(str, strEggs, Eggs, "..E-mac   ")
-                                End If
-
-                                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEivitaesis")) > 0 Then
-                                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEivitaesis").ToString.Substring(0, 2))
-                                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEivitaesis").ToString.Substring(2, 2))
-                                    strEggs = AddEggString(str, strEggs, Eggs, "..E-ivitaesis   ")
-                                End If
-
-                                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEalpacae")) > 0 Then
-                                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEalpacae").ToString.Substring(0, 2))
-                                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEalpacae").ToString.Substring(2, 2))
-                                    strEggs = AddEggString(str, strEggs, Eggs, "..E-alpacae   ")
-                                End If
-
-                                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestElamae")) > 0 Then
-                                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestElamae").ToString.Substring(0, 2))
-                                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestElamae").ToString.Substring(2, 2))
-                                    strEggs = AddEggString(str, strEggs, Eggs, "..E-lamae   ")
-                                End If
-
-                                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEpunoensis")) > 0 Then
-                                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEpunoensis").ToString.Substring(0, 2))
-                                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEpunoensis").ToString.Substring(2, 2))
-                                    strEggs = AddEggString(str, strEggs, Eggs, "..E-punoensis   ")
-                                End If
-
-
-                                'Change the colour if it is a fail and send the string to the report
-                                If backcolour Then
-                                    RichTextBox1.SelectionBackColor = Color.LightSteelBlue
-                                Else
-                                    RichTextBox1.SelectionBackColor = Color.White
-                                End If
-                                backcolour = Not backcolour
-
-                                str = str & strEggs
-                                str = str.PadRight(74, " ")
-                                Dim wwStr As String = WordWrap(str, 75)
-
-                                If (Total < GlobalVariables.pass) And (Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEmac")) <= 0) Then
-                                    RichTextBox1.SelectionColor = Color.Black
-                                    RichTextBox1.AppendText(wwstr)
-                                Else
-                                    RichTextBox1.SelectionColor = Color.Red
-                                    RichTextBox1.AppendText(wwStr)
-                                End If
+                            If Convert.ToInt16(data(j).ItemArray(8)) > 0 Then
+                                Eggs = System.Convert.ToInt32(data(j).ItemArray(8).ToString.Substring(0, 2))
+                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(8).ToString.Substring(2, 2))
+                                strEggs = AddEggString(str, strEggs, Eggs, "..Trichostrongyles   ")
                             End If
+
+                            If Convert.ToInt16(data(j).ItemArray(9)) > 0 Then
+                                Eggs = System.Convert.ToInt32(data(j).ItemArray(9).ToString.Substring(0, 2))
+                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(9).ToString.Substring(2, 2))
+                                strEggs = AddEggString(str, strEggs, Eggs, "..Trichurius   ")
+                            End If
+
+                            If Convert.ToInt16(data(j).ItemArray(10)) > 0 Then
+                                Eggs = System.Convert.ToInt32(data(j).ItemArray(10).ToString.Substring(0, 2))
+                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(10).ToString.Substring(2, 2))
+                                strEggs = AddEggString(str, strEggs, Eggs, "..Nematordirus   ")
+                            End If
+
+                            If Convert.ToInt16(data(j).ItemArray(11)) > 0 Then
+                                Eggs = System.Convert.ToInt32(data(j).ItemArray(11).ToString.Substring(0, 2))
+                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(11).ToString.Substring(2, 2))
+                                strEggs = AddEggString(str, strEggs, Eggs, "..Capillarid   ")
+                            End If
+
+                            If Convert.ToInt16(data(j).ItemArray(12)) > 0 Then
+                                Eggs = System.Convert.ToInt32(data(j).ItemArray(12).ToString.Substring(0, 2))
+                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(12).ToString.Substring(2, 2))
+                                strEggs = AddEggString(str, strEggs, Eggs, "..Moniezid   ")
+                            End If
+
+                            If Convert.ToInt16(data(j).ItemArray(13)) > 0 Then
+                                Eggs = System.Convert.ToInt32(data(j).ItemArray(13).ToString.Substring(0, 2))
+                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(13).ToString.Substring(2, 2))
+                                strEggs = AddEggString(str, strEggs, Eggs, "..E-mac   ")
+                            End If
+
+                            If Convert.ToInt16(data(j).ItemArray(14)) > 0 Then
+                                Eggs = System.Convert.ToInt32(data(j).ItemArray(14).ToString.Substring(0, 2))
+                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(14).ToString.Substring(2, 2))
+                                strEggs = AddEggString(str, strEggs, Eggs, "..E-ivitaesis   ")
+                            End If
+
+                            If Convert.ToInt16(data(j).ItemArray(15)) > 0 Then
+                                Eggs = System.Convert.ToInt32(data(j).ItemArray(15).ToString.Substring(0, 2))
+                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(15).ToString.Substring(2, 2))
+                                strEggs = AddEggString(str, strEggs, Eggs, "..E-alpacae   ")
+                            End If
+
+                            If Convert.ToInt16(data(j).ItemArray(16)) > 0 Then
+                                Eggs = System.Convert.ToInt32(data(j).ItemArray(16).ToString.Substring(0, 2))
+                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(16).ToString.Substring(2, 2))
+                                strEggs = AddEggString(str, strEggs, Eggs, "..E-lamae   ")
+                            End If
+
+                            If Convert.ToInt16(data(j).ItemArray(17)) > 0 Then
+                                Eggs = System.Convert.ToInt32(data(j).ItemArray(17).ToString.Substring(0, 2))
+                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(17).ToString.Substring(2, 2))
+                                strEggs = AddEggString(str, strEggs, Eggs, "..E-punoensis   ")
+                            End If
+
+
+                            'Change the colour if it is a fail and send the string to the report
+                            If backcolour Then
+                                RichTextBox1.SelectionBackColor = Color.LightSteelBlue
+                            Else
+                                RichTextBox1.SelectionBackColor = Color.White
+                            End If
+                            backcolour = Not backcolour
+
+                            str = str & strEggs
+                            str = str.PadRight(74, " ")
+                            Dim wwStr As String = WordWrap(str, 75)
+
+                            If (data(j).ItemArray(24) < GlobalVariables.pass) And (Convert.ToInt16(data(j).ItemArray(13)) <= 0) Then
+                                RichTextBox1.SelectionColor = Color.Black
+                                RichTextBox1.AppendText(wwStr)
+                            Else
+                                RichTextBox1.SelectionColor = Color.Red
+                                RichTextBox1.AppendText(wwStr)
+                            End If
+
                         End If
                     Next
                     backcolour = Not backcolour
@@ -223,18 +254,13 @@ Public Class FormGroupTestReport
             RichTextBox1.AppendText(vbNewLine & "Treat all animals marked in red")
             RichTextBox1.AppendText(vbNewLine & vbNewLine & vbNewLine)
             RichTextBox1.AppendText(vbNewLine & "*************** End of Report *****************")
-
-
-            NumberOfTest = GlobalVariables.ds.Tables("TestResults").Rows.Count - 1
             Me.Cursor = Cursors.Default
+            RichTextBox1.SelectionStart = 1
+            RichTextBox1.ScrollToCaret()
         Catch ex As Exception
-
+            MsgBox(ex.ToString)
         End Try
     End Sub
-
-
-
-
     Public Sub SortTestDb(Group As String)
         'Sort the datatable
         FormMain.ConnectedDB = New DataBaseFunctions()              'Open the database connection
@@ -297,18 +323,12 @@ Public Class FormGroupTestReport
         Next cntOutter
 
     End Sub
-
-
-
-
-
     Private Function AddEggString(str As String, strEggs As String, Eggs As Integer, name As String)
         Dim strLength As Integer = (Len(str) + Len(strEggs) + Len(name))
         strEggs = strEggs & Eggs.ToString & name
 
         AddEggString = strEggs
     End Function
-
     Function WordWrap(ByVal Text As String, Optional ByVal maxLengthOfALine As Integer = 77)
 
 
@@ -378,55 +398,42 @@ Public Class FormGroupTestReport
         End Try
         WordWrap = SplitLine
     End Function
-
-
-
-
     Private Sub CheckedListBox2_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles CheckedListBox2.SelectedIndexChanged
         Animal = " "
         For Each indexChecked In CheckedListBox2.CheckedIndices
             ' The indexChecked variable contains the index of the item.
             Animal += Convert.ToString(CheckedListBox2.Items(indexChecked)) & ","
         Next
-
-
         CheckedListBox2.Sorted = True
-
+        BuildReport()
 
     End Sub
-
     Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
         For idx As Integer = 0 To CheckedListBox2.Items.Count - 1
             Me.CheckedListBox2.SetItemCheckState(idx, CheckState.Checked)
         Next
-
         CheckedListBox2.Sorted = True
 
         Animal = " "
         For Each indexChecked In CheckedListBox2.CheckedIndices
             ' The indexChecked variable contains the index of the item.
             Animal += Convert.ToString(CheckedListBox2.Items(indexChecked)) & ","
-
         Next
-
+        BuildReport()
     End Sub
-
     Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles Button5.Click
         For idx As Integer = 0 To CheckedListBox2.Items.Count - 1
             Me.CheckedListBox2.SetItemCheckState(idx, CheckState.Unchecked)
         Next
-
         CheckedListBox2.Sorted = True
 
         Animal = " "
         For Each indexChecked In CheckedListBox2.CheckedIndices
             ' The indexChecked variable contains the index of the item.
             Animal += Convert.ToString(CheckedListBox2.Items(indexChecked)) & ","
-
         Next
-
+        BuildReport()
     End Sub
-
     Private Sub FormGroupTestReport_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         If GlobalVariables.EmailPassword <> "" And GlobalVariables.EmailUsername <> "" And GlobalVariables.EmailServer <> "" Then
             ToolStripButton3.Enabled = True
@@ -449,11 +456,7 @@ Public Class FormGroupTestReport
         For Each indexChecked In CheckedListBox1.CheckedIndices
             ' The indexChecked variable contains the index of the item.
             ReportGroup += Convert.ToString(CheckedListBox1.Items(indexChecked)) & ","
-
         Next
-
-
-
 
         CheckedListBox2.Items.Clear()
 
@@ -474,20 +477,20 @@ Public Class FormGroupTestReport
         For Each indexChecked In CheckedListBox2.CheckedIndices
             ' The indexChecked variable contains the index of the item.
             Animal += Convert.ToString(CheckedListBox2.Items(indexChecked)) & ","
-
         Next
 
         CheckedListBox2.Sorted = True
+        ReportGroup = " "
+        For Each indexChecked In CheckedListBox1.CheckedIndices
+            ' The indexChecked variable contains the index of the item.
+            ReportGroup += Convert.ToString(CheckedListBox1.Items(indexChecked)) & ","
+        Next
+        BuildReport()
 
     End Sub
-
-
-
-
-    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs)
         BuildReport()
     End Sub
-
     Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
         Dim printDlg As New PrintDialog()
         'Dim Combo = Mid(Form1.ComboBox1.SelectedItem.ToString, 1, Len(Form1.ComboBox1.SelectedItem.ToString))
@@ -500,17 +503,12 @@ Public Class FormGroupTestReport
         Dim ReportName As String = GlobalVariables.DbDriveLocation & "Print.rtf"
         RichTextBox1.SaveFile(ReportName)
 
-        ' Landscape()
-
-
 
         Dim psi As New ProcessStartInfo
-
         psi.UseShellExecute = True
         psi.Verb = "print"
         psi.Arguments = printDlg.PrinterSettings.PrinterName.ToString()
         psi.WindowStyle = ProcessWindowStyle.Hidden
-
         psi.FileName = ReportName ' Here specify a document to be printed
 
         Process.Start(psi)
@@ -518,15 +516,68 @@ Public Class FormGroupTestReport
 
         Close()
     End Sub
-
     Private Sub ToolStripButton4_Click(sender As Object, e As EventArgs) Handles ToolStripButton4.Click
         Dim ReportName As String = GlobalVariables.DbDriveLocation & "Print.rtf"
         RichTextBox1.SaveFile(ReportName)
 
+
         FormMain.Email("Worm count database - Farm report", "See attached file for report as requested", ReportName)
     End Sub
+    Sub EmailgroundThread()
+        Try
 
+            'GlobalVariables.Email = "aig1066@hotmail.co.uk"
+
+            GlobalVariables.EmailSending = True
+            Dim Smtp_Server As New SmtpClient
+            Dim e_mail As New MailMessage()
+            Smtp_Server.UseDefaultCredentials = False
+            Smtp_Server.Credentials = New Net.NetworkCredential(GlobalVariables.EmailUsername, GlobalVariables.EmailPassword)
+            Smtp_Server.Port = 587
+            Smtp_Server.EnableSsl = True
+            Smtp_Server.Host = GlobalVariables.EmailServer
+            e_mail = New MailMessage()
+            e_mail.From = New MailAddress(GlobalVariables.EmailUsername)
+            If GlobalVariables.Email = "" Or GlobalVariables.Email = "sample@farm.com" Then
+                MsgBox("Email recipient has to been entered, go to settings and correct.", vbOKOnly & vbCritical, "Error")
+                Exit Sub
+            End If
+            e_mail.To.Add(GlobalVariables.Email)
+            e_mail.Subject = GlobalVariables.Subject
+            e_mail.IsBodyHtml = True
+
+            'e_mail.Body = GlobalVariables.Body
+            Dim body As String = File.ReadAllText("C:\WormCountDATA\body.html")
+            body = body.Replace("<%Tag01%>", GlobalVariables.AlpacaName)
+            e_mail.Body = body
+
+
+            If GlobalVariables.Attachment <> "" Then
+                Dim AttachmentFile As String = GlobalVariables.Attachment
+                e_mail.Attachments.Add(New Attachment(AttachmentFile))
+            End If
+            Smtp_Server.Send(e_mail)
+
+            e_mail.Attachments.Dispose()
+
+
+
+        Catch ex As Exception
+
+            Dim st As New StackTrace(True)
+            st = New StackTrace(ex, True)
+            GlobalVariables.Linenumber = st.GetFrame(0).GetFileLineNumber().ToString()
+            Dim f As New StackFrame
+            FormMain.ErrorHandler(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, GlobalVariables.Linenumber, f)
+            GlobalVariables.EmailSending = False
+            Exit Sub
+        End Try
+        GlobalVariables.EmailSending = False
+
+    End Sub
     Private Sub ToolStripButton2_Click(sender As Object, e As EventArgs) Handles ToolStripButton2.Click
         Close()
     End Sub
+
+
 End Class

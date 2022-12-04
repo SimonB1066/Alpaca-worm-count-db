@@ -16,16 +16,7 @@ Public Class FormSettings
     Private Sub FormSettings_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
 
 
-        GlobalVariables.ColourLevel(1) = CInt(TextBox1.Text)
-        GlobalVariables.ColourLevel(2) = CInt(TextBox3.Text)
-        GlobalVariables.ColourLevel(3) = CInt(TextBox4.Text)
-        GlobalVariables.ColourLevel(4) = CInt(TextBox5.Text)
-        GlobalVariables.ColourLevel(5) = CInt(TextBox7.Text)
-        GlobalVariables.ColourLevel(6) = CInt(TextBox8.Text)
-        GlobalVariables.ColourLevel(7) = CInt(TextBox9.Text)
-        GlobalVariables.ColourLevel(8) = CInt(TextBox10.Text)
-        GlobalVariables.ColourLevel(9) = CInt(TextBox11.Text)
-        GlobalVariables.ColourLevel(10) = CInt(TextBox12.Text)
+
         GlobalVariables.EggType(1).Bias = TrackBar1.Value / 10
         GlobalVariables.EggType(2).Bias = TrackBar2.Value / 10
         GlobalVariables.EggType(3).Bias = TrackBar3.Value / 10
@@ -66,26 +57,6 @@ Public Class FormSettings
     Private Sub FormSettings_Shown(sender As Object, e As EventArgs) Handles Me.Shown
 
 
-        TextBox1.Text = GlobalVariables.ColourLevel(1)
-        TextBox1.BackColor = Color.FromArgb(255, 253, 253)
-        TextBox3.Text = GlobalVariables.ColourLevel(2)
-        TextBox3.BackColor = Color.FromArgb(255, 240, 240)
-        TextBox4.Text = GlobalVariables.ColourLevel(3)
-        TextBox4.BackColor = Color.FromArgb(255, 220, 220)
-        TextBox5.Text = GlobalVariables.ColourLevel(4)
-        TextBox5.BackColor = Color.FromArgb(255, 200, 200)
-        TextBox7.Text = GlobalVariables.ColourLevel(5)
-        TextBox7.BackColor = Color.FromArgb(255, 175, 175)
-        TextBox8.Text = GlobalVariables.ColourLevel(6)
-        TextBox8.BackColor = Color.FromArgb(255, 150, 150)
-        TextBox9.Text = GlobalVariables.ColourLevel(7)
-        TextBox9.BackColor = Color.FromArgb(255, 125, 125)
-        TextBox10.Text = GlobalVariables.ColourLevel(8)
-        TextBox10.BackColor = Color.FromArgb(255, 100, 100)
-        TextBox11.Text = GlobalVariables.ColourLevel(9)
-        TextBox11.BackColor = Color.FromArgb(255, 75, 75)
-        TextBox12.Text = GlobalVariables.ColourLevel(10)
-        TextBox12.BackColor = Color.FromArgb(255, 50, 50)
         Label50.Text = GlobalVariables.EggType(1).Name
         Label51.Text = GlobalVariables.EggType(2).Name
         Label52.Text = GlobalVariables.EggType(3).Name
@@ -111,7 +82,7 @@ Public Class FormSettings
 
         ToolStripButton3.Text = GlobalVariables.pass
 
-        CheckBox1.Checked = GlobalVariables.ColourEnable
+
         CheckBox2.Checked = GlobalVariables.BiasEnable
         vis()
 
@@ -327,8 +298,8 @@ Public Class FormSettings
         End If
     End Sub
 
-    Private Sub CheckBox1_Click(sender As Object, e As EventArgs) Handles CheckBox1.Click
-        GlobalVariables.ColourEnable = CheckBox1.Checked
+    Private Sub CheckBox1_Click(sender As Object, e As EventArgs)
+
         Save = True
         vis()
     End Sub
@@ -339,55 +310,6 @@ Public Class FormSettings
     End Sub
 
     Public Sub vis()
-        If CheckBox1.Checked Then
-            TextBox1.Visible = True
-            TextBox3.Visible = True
-            TextBox4.Visible = True
-            TextBox5.Visible = True
-            TextBox7.Visible = True
-            TextBox8.Visible = True
-            TextBox9.Visible = True
-            TextBox10.Visible = True
-            TextBox11.Visible = True
-            TextBox12.Visible = True
-            Label14.Visible = True
-            Label1.Visible = True
-            Label2.Visible = True
-            Label4.Visible = True
-            Label5.Visible = True
-            Label6.Visible = True
-            Label9.Visible = True
-            Label10.Visible = True
-            Label11.Visible = True
-            Label12.Visible = True
-            Label13.Visible = True
-            Label16.Visible = True
-            Label15.Visible = True
-        Else
-            TextBox1.Visible = False
-            TextBox3.Visible = False
-            TextBox4.Visible = False
-            TextBox5.Visible = False
-            TextBox7.Visible = False
-            TextBox8.Visible = False
-            TextBox9.Visible = False
-            TextBox10.Visible = False
-            TextBox11.Visible = False
-            TextBox12.Visible = False
-            Label14.Visible = False
-            Label1.Visible = False
-            Label2.Visible = False
-            Label4.Visible = False
-            Label5.Visible = False
-            Label6.Visible = False
-            Label9.Visible = False
-            Label10.Visible = False
-            Label11.Visible = False
-            Label12.Visible = False
-            Label13.Visible = False
-            Label16.Visible = False
-            Label15.Visible = False
-        End If
 
 
     End Sub

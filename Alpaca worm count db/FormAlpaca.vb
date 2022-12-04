@@ -10,16 +10,10 @@ Public Class FormAlpaca
     Private Sub ToolStrip1_MouseLeave(sender As Object, e As EventArgs) Handles ToolStrip1.MouseLeave
         Me.Cursor = Cursors.Arrow
     End Sub
-
     Private Sub FormAlpaca_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         CenterToScreen()
         Me.Icon = My.Resources.Form
-
-
     End Sub
-
-
-
     Private Sub BuildReport()
         RichTextBox1.Clear()
         RichTextBox1.ZoomFactor = 1
@@ -162,9 +156,6 @@ Public Class FormAlpaca
         RichTextBox1.AppendText(vbNewLine & vbNewLine & vbNewLine)
         RichTextBox1.AppendText(vbNewLine & "*************** End of Report *****************")
     End Sub
-
-
-
     Private Sub CheckBox1_Click(sender As Object, e As EventArgs) Handles CheckBox1.Click
 
 
@@ -188,16 +179,12 @@ Public Class FormAlpaca
             FormMain.ErrorHandler(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, GlobalVariables.Linenumber, f)
         End Try
     End Sub
-
-
-
     Private Function AddEggString(str As String, strEggs As String, Eggs As Integer, name As String)
         Dim strLength As Integer = (Len(str) + Len(strEggs) + Len(name))
         strEggs = strEggs & Eggs.ToString & name
 
         AddEggString = strEggs
     End Function
-
     Function WordWrap(ByVal Text As String, Optional ByVal maxLengthOfALine As Integer = 77)
 
 
@@ -260,10 +247,6 @@ Public Class FormAlpaca
 
         WordWrap = SplitLine
     End Function
-
-
-
-
     Private Sub FormAlpaca_Shown(sender As Object, e As EventArgs) Handles Me.Shown
 
         TextBox1.Text = GlobalVariables.AlpacaName
@@ -280,20 +263,11 @@ Public Class FormAlpaca
                 Exit For
             End If
         Next
-
-
-
-
-
-
-
         BuildReport()
-
         enableEdits = True
         ToolStripButton3.Enabled = True
         ToolStripButton1.Enabled = True
     End Sub
-
     Public Function GetColour(Colour As String) As String
         Try
             Dim dbProvider As String = "Provider=Microsoft.ACE.OLEDB.12.0;"
@@ -318,7 +292,6 @@ Public Class FormAlpaca
         End Try
         GetColour = "Colour: Unknown"
     End Function
-
     Public Function GetSex(Number As Integer) As String
         Try
             Dim dbProvider As String = "Provider=Microsoft.ACE.OLEDB.12.0;"
@@ -343,7 +316,6 @@ Public Class FormAlpaca
         End Try
         GetSex = "Sex: Unknown"
     End Function
-
     Private Sub TextBox1_Validated(sender As Object, e As EventArgs) Handles TextBox1.Validated
         Dim rtn As MsgBoxResult
         If enableEdits Then
@@ -380,7 +352,6 @@ Public Class FormAlpaca
             End If
         End If
     End Sub
-
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         Dim printDlg As New PrintDialog()
         'Dim Combo = Mid(Form1.ComboBox1.SelectedItem.ToString, 1, Len(Form1.ComboBox1.SelectedItem.ToString))
@@ -411,7 +382,6 @@ Public Class FormAlpaca
 
         Close()
     End Sub
-
     Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
         Dim ReportName As String = GlobalVariables.DbDriveLocation & "Report.rtf"
         Try
@@ -425,11 +395,6 @@ Public Class FormAlpaca
                 writer.Flush()
                 writer.Close()
             End Using
-
-
-
-
-
             Label3.Visible = False
         Catch ex As Exception
             Dim st As New StackTrace(True)
@@ -438,16 +403,31 @@ Public Class FormAlpaca
             Dim f As New StackFrame
             FormMain.ErrorHandler(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, GlobalVariables.Linenumber, f)
         End Try
-
-        FormMain.Email("Worm count database - Report for " & GlobalVariables.AlpacaName, "See attached file for report for " & GlobalVariables.AlpacaName & " as requested", ReportName)
         ToolStripButton3.Enabled = True
-    End Sub
 
+        GlobalVariables.Email = InputBox("Enter Email address", "Email address", "aig1066@hotmail.co.uk")
+
+        If GlobalVariables.Email = "" Then
+            Exit Sub
+        End If
+        If ValidateEmail(GlobalVariables.Email) = False Then
+            MsgBox("E mail address wrong", vbOKOnly, "Error")
+            Exit Sub
+        End If
+        FormMain.Email("Worm count database - Report for " & GlobalVariables.AlpacaName, "See attached file for report for " & GlobalVariables.AlpacaName & " as requested", ReportName)
+
+    End Sub
+    Public Function ValidateEmail(ByVal strCheck As String) As Boolean
+        Try
+            Dim vEmailAddress As New System.Net.Mail.MailAddress(strCheck)
+        Catch ex As Exception
+            Return False
+        End Try
+        Return True
+    End Function
     Private Sub ToolStripButton2_Click(sender As Object, e As EventArgs) Handles ToolStripButton2.Click
         Me.Close()
     End Sub
-
-
     Public Sub TryToFindAnimal(string1 As String)
         Dim AnimalMatch As Boolean = False
         For j = 0 To GlobalVariables.ds.Tables("Animals").Rows.Count - 1
@@ -474,7 +454,6 @@ Public Class FormAlpaca
             End If
         Next
     End Sub
-
     Public Sub ChangeRecord(table As String, Field As String, string1 As String, string2 As String)
         Dim sql As String = "Update " & table & " Set " & Field & " = '" & string2 & "' Where " & Field & " = '" & string1 & "'"
 
@@ -484,8 +463,6 @@ Public Class FormAlpaca
             End If
         Next
     End Sub
-
-
     Public Function GetSimilarity(string1 As String, string2 As String) As Single
         Dim dis As Single = ComputeDistance(string1, string2)
         Dim maxLen As Single = string1.Length
@@ -498,7 +475,6 @@ Public Class FormAlpaca
             Return 1.0F - dis / maxLen
         End If
     End Function
-
     Private Function ComputeDistance(s As String, t As String) As Integer
         Dim n As Integer = s.Length
         Dim m As Integer = t.Length
@@ -531,8 +507,6 @@ Public Class FormAlpaca
         Next
         Return distance(n, m)
     End Function
-
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         ChangeRecord("Alpaca", "Name", EnterAninalName, TextBox1.Text)
         ChangeRecord("TestResults", "TestName", EnterAninalName, TextBox1.Text)

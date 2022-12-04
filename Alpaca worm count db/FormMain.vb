@@ -29,15 +29,12 @@ Public Class FormMain
     Private Sub ToolStrip1_MouseLeave(sender As Object, e As EventArgs) Handles ToolStrip1.MouseLeave
         Me.Cursor = Cursors.Arrow
     End Sub
-
-
     Public Sub ErrorHandler(ex As Exception, m As String, st As String, f As StackFrame)
         Systemlog("Class: " & Replace(f.GetMethod().DeclaringType.FullName, "WindowsApplication1.", ""), "   Module: " & m, "    Line number: " & st, ex.Message)
         Actionlog("Class: " & Replace(f.GetMethod().DeclaringType.FullName, "WindowsApplication1.", "") & "   Module: " & m & "    Line number: " & st & ex.Message)
         MessageBox.Show("Class: " & Replace(f.GetMethod().DeclaringType.FullName, "WindowsApplication1.", "") & vbNewLine & "Module: " & m & vbNewLine & "Line number: " & st & vbNewLine & "Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
     End Sub
-
     Private Sub FormMain_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         If Not Crash Then
             Try
@@ -56,7 +53,6 @@ Public Class FormMain
             End Try
         End If
     End Sub
-
     Private Sub AddApp(ProfileType As NET_FW_PROFILE_TYPE_)
         Try
             Dim app As INetFwAuthorizedApplication = DirectCast(Activator.CreateInstance(Type.GetTypeFromProgID("HnetCfg.FwAuthorizedApplication")), INetFwAuthorizedApplication)
@@ -68,7 +64,6 @@ Public Class FormMain
         Catch
         End Try
     End Sub
-
     Public Sub CheckWebForUpdates()
 
         Try
@@ -110,44 +105,6 @@ Public Class FormMain
             ErrorHandler(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, GlobalVariables.Linenumber, f)
         End Try
     End Sub
-
-    Public Sub GetTheUpdates()
-        Try
-            Dim userRoot As String = System.Environment.GetEnvironmentVariable("USERPROFILE")
-            Dim downloadFolder As String = Path.Combine(userRoot, "Downloads")
-
-            If Not File.Exists(downloadFolder & "\" & GlobalVariables.LatestUpdate) Then
-                FtpFolderCreate("ftp://www.mullacottalpacas.com/wwwroot/aig/WDB/" & GlobalVariables.FarmName.Replace(" ", ""), GlobalVariables.User, GlobalVariables.Password)
-
-                'Send error log
-                Dim Sendrequest1 As System.Net.FtpWebRequest = DirectCast(System.Net.WebRequest.Create("ftp://www.mullacottalpacas.com/wwwroot/aig/" & GlobalVariables.LatestUpdate), System.Net.FtpWebRequest)
-                Sendrequest1.EnableSsl = False
-                Sendrequest1.UsePassive = False
-                Sendrequest1.Credentials = New System.Net.NetworkCredential(GlobalVariables.User, GlobalVariables.Password)
-                Sendrequest1.Method = System.Net.WebRequestMethods.Ftp.DownloadFile
-                Sendrequest1.KeepAlive = False
-
-                Dim dtNow As DateTime = Now
-
-                Using ftpStream As Stream = Sendrequest1.GetResponse().GetResponseStream(),
-                    fileStream As Stream = File.Create(downloadFolder & "\" & GlobalVariables.LatestUpdate)
-                    ftpStream.CopyTo(fileStream)
-                End Using
-
-            Else
-                MsgBox("You already have downloaded the updates, they are in your download folder. Called " & GlobalVariables.LatestUpdate)
-            End If
-        Catch ex As Exception
-            Dim st As New StackTrace(True)
-            st = New StackTrace(ex, True)
-            GlobalVariables.Linenumber = st.GetFrame(0).GetFileLineNumber().ToString()
-            Dim f As New StackFrame
-            ErrorHandler(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, GlobalVariables.Linenumber, f)
-        End Try
-    End Sub
-
-
-
     Private Sub CheckUpdates()
         Try
             'Check if this system already has a database
@@ -200,7 +157,6 @@ Public Class FormMain
             ErrorHandler(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, GlobalVariables.Linenumber, f)
         End Try
     End Sub
-
     Public Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
 
@@ -210,7 +166,6 @@ Public Class FormMain
 
 
     End Sub
-
     Private Sub FormMain_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         Actionlog("Program, Worm Count Database - started")
 
@@ -366,9 +321,6 @@ Public Class FormMain
 
         BackgroundWorker1.RunWorkerAsync()
     End Sub
-
-
-
     Public Sub SendErrorReport()
 
         'Try
@@ -386,8 +338,6 @@ Public Class FormMain
 
         'End Try
     End Sub
-
-
     Public Sub OpenTheDataBase()
 
 
@@ -397,7 +347,6 @@ Public Class FormMain
 
 
     End Sub
-
     Public Sub Systemlog(ByVal strFunction As String, ByVal strModule As String, ByVal strLine As String, ByVal strError As String)
         Try
 
@@ -416,7 +365,6 @@ Public Class FormMain
             MessageBox.Show(ex.Message, "Error")
         End Try
     End Sub
-
     Public Sub Actionlog(ByVal strLine As String)
         Try
 
@@ -432,7 +380,6 @@ Public Class FormMain
             MessageBox.Show(ex.Message, "Error")
         End Try
     End Sub
-
     Public Sub CreateTable()
 
         ConnectedDB = New DataBaseFunctions()       'Open the database connection
@@ -456,9 +403,6 @@ Public Class FormMain
 
         End Try
     End Sub
-
-
-
     Public Sub loadFormWithAnimals()
 
         'Clear the datagridView's rows of data
@@ -543,16 +487,16 @@ Public Class FormMain
 
 
     End Sub
-
-
     Public Sub FillDataView()
         Dim str As String = ""
+        Dim max As Integer
+        Dim insertValue As String = ""
+        Dim CurrentDate As String = ""
+        Dim lastDate As String = "01/01/1970 00:00:00"
         Try
             'Find out how many tests have been done
             Dim NumberOfTestDone As Integer = 0
             Dim NumberOfGroup As String = ""
-            'ConnectedDB = New DataBaseFunctions()       'Open the database connection
-            'GlobalVariables.ds = ConnectedDB.PopulateDataSet()          'Put the data into a dataset
 
             'Check if each animal has had a test and if there is a group for it if not add a group test coloum in the datagridview
             For Each AnimalRow As DataRow In GlobalVariables.ds.Tables("Alpaca").Rows
@@ -571,6 +515,7 @@ Public Class FormMain
                         DataGridView1.Columns.Add(col)
                     End If
 
+
                     'Check to see if the entry is for the current aniamal if so fill the test result
                     If TestRow.Item(2) = AnimalRow(1) Then
                         'now run through the database again and see if the animal has more that one entry per group date.
@@ -579,24 +524,30 @@ Public Class FormMain
                         foundRow = GlobalVariables.ds.Tables("TestResults").Select("TestName='" & AnimalRow(1) & "' and TestNumberName='" & TestRow.Item(5) & "'")
                         NumberOfTestDone = foundRow.Length
 
-                        Try
-                            If NumberOfTestDone > 1 Then
-
-                                If GlobalVariables.ds.Tables("GridView").Rows(AnimalRow.Table.Rows.IndexOf(AnimalRow)).Item(TestRow.Item(5)).ToString = "" Then
-                                    If TestRow(7) = 0 Then
-                                        GlobalVariables.ds.Tables("GridView").Rows(AnimalRow.Table.Rows.IndexOf(AnimalRow)).Item(TestRow.Item(5)) = TestRow(6) & "*"
-                                    Else
-                                        GlobalVariables.ds.Tables("GridView").Rows(AnimalRow.Table.Rows.IndexOf(AnimalRow)).Item(TestRow.Item(5)) = TestRow(6) & "  " & TestRow(7) & "*"
-                                    End If
-                                End If
-                            Else
-                                If TestRow(7) = 0 Then
-                                    GlobalVariables.ds.Tables("GridView").Rows(AnimalRow.Table.Rows.IndexOf(AnimalRow)).Item(TestRow.Item(5)) = TestRow(6)
-                                Else
-                                    GlobalVariables.ds.Tables("GridView").Rows(AnimalRow.Table.Rows.IndexOf(AnimalRow)).Item(TestRow.Item(5)) = TestRow(6) & "  " & TestRow(7)
-                                End If
+                        'Find the max result for this period then add a Chr(2) at the end to be used latter in the formatting
+                        max = 0
+                        For i = 0 To foundRow.Length - 1
+                            If Convert.ToInt16((foundRow(i).ItemArray(6)) + Convert.ToInt16(foundRow(i).ItemArray(7))) > max Then
+                                max = Convert.ToInt16(foundRow(i).ItemArray(6)) + Convert.ToInt16(foundRow(i).ItemArray(7))
                             End If
+                        Next
 
+                        Try
+                            If TestRow.Item(2) = "Krystal" And AnimalRow(1) = "Krystal" Then
+                                AnimalRow(1) = AnimalRow(1)
+                            End If
+                            'If TestRow.Item(1) > lastDate Then 'Check that this is the latest test
+                            If GlobalVariables.ds.Tables("GridView").Rows(AnimalRow.Table.Rows.IndexOf(AnimalRow)).Item(TestRow.Item(5)).ToString = "" Then
+                                lastDate = TestRow.Item(1)
+                                insertValue = TestRow(6) & " " & TestRow(7)
+                                If NumberOfTestDone > 1 Then
+                                    insertValue = insertValue & "*"
+                                End If
+                                If max >= GlobalVariables.pass Then
+                                    insertValue = insertValue & Chr(2)
+                                End If
+                                GlobalVariables.ds.Tables("GridView").Rows(AnimalRow.Table.Rows.IndexOf(AnimalRow)).Item(TestRow.Item(5)) = insertValue
+                            End If
 
 
                         Catch ex As Exception
@@ -607,10 +558,10 @@ Public Class FormMain
                             ErrorHandler(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, GlobalVariables.Linenumber, f)
                         End Try
                     End If
-
-
                 Next
+                lastDate = "01/01/1970 00:00:00"
             Next
+
         Catch ex As Exception
 
             If ex.Message <> "Application is not installed." Then
@@ -626,7 +577,6 @@ Public Class FormMain
         'DataGridViewRefresh()
 
     End Sub
-
     Private Function ColourCell(row As Integer)
         Dim EggBiased As Integer = 0
         Dim Cell1 As Integer = 0
@@ -671,7 +621,6 @@ Public Class FormMain
 
         ColourCell = Color.PaleGreen
     End Function
-
     Public Function GetEggs(egg As String)
         While egg > 0
             GetEggs += egg Mod 10
@@ -708,7 +657,6 @@ Public Class FormMain
 
         Return ret
     End Function
-
     Public Function Encrypt(ByVal plainText As String, ByVal secretKey As String) As Byte()
         Dim encryptedPassword As Byte()
         Using outputStream As MemoryStream = New MemoryStream()
@@ -722,7 +670,6 @@ Public Class FormMain
         End Using
         Return encryptedPassword
     End Function
-
     Public Function Decrypt(ByVal encryptedBytes As Byte(), ByVal secretKey As String) As String
         Dim plainText As String = Nothing
         Using inputStream As MemoryStream = New MemoryStream(encryptedBytes)
@@ -735,7 +682,6 @@ Public Class FormMain
         End Using
         Return plainText
     End Function
-
     Private Function getAlgorithm(ByVal secretKey As String) As RijndaelManaged
         Const salt As String = "sdgfsdhflfhiljf"
         Const keySize As Integer = 256
@@ -748,7 +694,6 @@ Public Class FormMain
         algorithm.Padding = PaddingMode.PKCS7
         Return algorithm
     End Function
-
     Public Function SetXMLData() As String
         Dim ret As String = ""
 
@@ -843,30 +788,23 @@ Public Class FormMain
 
         Return ret
     End Function
-
     Public Shared Function ResizeImage(ByVal InputImage As Image) As Image
         Return New Bitmap(InputImage, New Size(371, 107))
     End Function
-
     Private Sub DataGridView1_CellFormatting(ByVal sender As Object, ByVal e As DataGridViewCellFormattingEventArgs) Handles DataGridView1.CellFormatting
         If Loaded Then
-            If e.ColumnIndex > 2 Then
+            If e.ColumnIndex > 0 Then
 
                 If Not (IsDBNull(e.Value)) And Not (e.Value Is Nothing) Then
                     Try
                         Dim tempWord As String = e.Value.ToString.Replace("*", "")
                         Dim words As String() = tempWord.Split(New Char() {" "c})
-
-
-                        'If GlobalVariables.BiasEnable Then
-                        'e.CellStyle.BackColor = ColourCell(e.RowIndex)
-                        'Else
-                        If Convert.ToUInt32(words(0)) >= GlobalVariables.pass Then
+                        If e.Value.ToString.Contains(Chr(2)) Then
                             e.CellStyle.BackColor = Color.Pink
                         Else
                             e.CellStyle.BackColor = Color.PaleGreen
                         End If
-                        'End If
+
 
                     Catch ex As Exception
                         Dim st As New StackTrace(True)
@@ -876,12 +814,10 @@ Public Class FormMain
                         ErrorHandler(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, GlobalVariables.Linenumber, f)
                     End Try
                 End If
-            Else
-                FormatTheAnimalCol(sender, e)
+
             End If
         End If
     End Sub
-
     Private Sub FormatTheAnimalCol(ByVal sender As Object, ByVal e As DataGridViewCellFormattingEventArgs)
         Dim Total As Integer = 0
         Dim Tests As Integer = 0
@@ -918,7 +854,6 @@ Public Class FormMain
         End If
 
     End Sub
-
     Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
         If Loaded Then
             'Actionlog("DataGridView1.CellDoubleClick")
@@ -939,9 +874,9 @@ Public Class FormMain
                             FormTest.ShowDialog()
                         End If
                         Exit Sub
-                        End If
+                    End If
 
-                        result = DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex).Value
+                    result = DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex).Value
 
 
                     MyMsgBox1.Label1.Text = GlobalVariables.AlpacaName & " has been tested, is this new test data " & vbNewLine & "to be entered or do you want to see the last test reaults."
@@ -1011,37 +946,29 @@ Public Class FormMain
     Private Sub CheckBox1_Click(ByVal sender As Object, ByVal e As System.EventArgs)
         FillDataView()
     End Sub
-
     Private Sub ExitToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.Close()
     End Sub
-
     Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         FormAbout.ShowDialog()
     End Sub
-
     Private Sub NewAnimalToolStripMenuItem_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
         FormNewAnimal.ShowDialog()
 
     End Sub
-
     Private Sub CreateNewTestGroupToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         NewTestPeriod()
     End Sub
-
     Private Sub EPGOPGPassRateToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         FormPass.ShowDialog()
 
     End Sub
-
-
     Private Sub ShowOnlyOnFarm_Click(sender As Object, e As EventArgs) Handles ShowOnlyOnFarm.Click
 
         OnFarm()
         DataGridViewRefresh()
         Actionlog("On farm tool bar pressed - OnFarm = " & GlobalVariables.OnFarm)
     End Sub
-
     Public Sub OnFarm()
         If GlobalVariables.OnFarm < 0 Or GlobalVariables.OnFarm > 1 Then
             GlobalVariables.OnFarm = 1
@@ -1067,7 +994,6 @@ Public Class FormMain
             ShowOnlyOnFarm.Image = My.Resources.OffFarmIco
         End If
     End Sub
-
     Private Sub NewTestPeriod()
         Dim result As DialogResult
 
@@ -1086,8 +1012,6 @@ Public Class FormMain
             DataGridViewRefresh()
         End If
     End Sub
-
-
     Private Sub DataGridView1_CellMouseEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellMouseEnter
         If Loaded Then
             Try
@@ -1127,7 +1051,7 @@ Public Class FormMain
                         Next
                         If DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString <> "" And DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString <> "0" Then
 
-                            customToolTip.SetToolTip(DataGridView1, str & vbNewLine & vbNewLine & vbNewLine & vbNewLine & "NOTE: '*' means the test period has more than one test." & vbNewLine & "            'e' means E-Mac was found.")
+                            customToolTip.SetToolTip(DataGridView1, str & vbNewLine & vbNewLine & vbNewLine & vbNewLine & "NOTE: '*' means the test period has more than one test.")
 
                         End If
                     End If
@@ -1141,11 +1065,9 @@ Public Class FormMain
             End Try
         End If
     End Sub
-
     Private Sub DataGridView1_CellMouseLeave(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellMouseLeave
         customToolTip.SetToolTip(DataGridView1, "")
     End Sub
-
     Public Function EggType(List() As DataRow, RowNumber As Integer)
         Dim strEggs As String = ""
         Dim Eggs As Int16 = 0
@@ -1223,31 +1145,25 @@ Public Class FormMain
         End If
         EggType = strEggs
     End Function
-
     Private Function AddEggString(str As String, strEggs As String, Eggs As Integer, name As String)
         Dim strLength As Integer = (Len(str) + Len(strEggs) + Len(name))
         strEggs = strEggs & Eggs.ToString & name
 
         AddEggString = strEggs
     End Function
-
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         FormGraphGroup.Show()
     End Sub
-
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs)
         loadFormWithAnimals()
     End Sub
-
     Private Sub Button2_Click_1(sender As System.Object, e As System.EventArgs)
         FormGroupTestReport.ShowDialog()
     End Sub
-
     Private Sub ToolStripButton1_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton1.Click
         Actionlog("Farm report tool bar pressed")
         FormGroupTestReport.ShowDialog()
     End Sub
-
     Private Sub ToolStripButton2_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton2.Click
         Actionlog("Add animal tool bar pressed")
         FormNewAnimal.ShowDialog()
@@ -1256,14 +1172,10 @@ Public Class FormMain
         loadFormWithAnimals()
 
     End Sub
-
     Private Sub ToolStripButton3_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton3.Click
         Actionlog("New test period tool bar pressed")
         NewTestPeriod()
     End Sub
-
-
-
     Public Sub DataGridViewRefresh()
         Dim DGVHScroll = DataGridView1.Controls.OfType(Of HScrollBar).SingleOrDefault
         Try
@@ -1323,13 +1235,11 @@ Public Class FormMain
             ErrorHandler(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, GlobalVariables.Linenumber, f)
         End Try
     End Sub
-
     Private Sub ToolStripButton5_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton5.Click
         FormPass.ShowDialog()
         ToolStripButton5.Text = GlobalVariables.pass
         Actionlog("Pass rate tool bar pressed - Pass = " & GlobalVariables.pass)
     End Sub
-
     Public Sub SortTestDb(Token As String)
         'Sort the datatable
         ConnectedDB = New DataBaseFunctions()               'Open the database connection
@@ -1356,29 +1266,24 @@ Public Class FormMain
         Next cntOutter
 
     End Sub
-
     Private Sub ToolStripButton6_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton6.Click
         Actionlog("Settings tool bar pressed")
         FormSettings.ShowDialog()
     End Sub
-
     Public Sub Email(Subject As String, body As String, Attachment As String)
         GlobalVariables.Body = body
         GlobalVariables.Attachment = Attachment
         GlobalVariables.Subject = Subject
         FormEmail.ShowDialog()
     End Sub
-
     Private Sub ToolStripButton7_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton7.Click
         Actionlog("About tool bar pressed")
         FormAbout.ShowDialog()
     End Sub
-
     Private Sub ToolStripButton8_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton8.Click
         Actionlog("Close tool bar pressed")
         Me.Close()
     End Sub
-
     Private Sub ToolStripButton9_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton9.Click
         Actionlog("Backup tool bar pressed")
         'FormBackup.Show()
@@ -1407,13 +1312,11 @@ Public Class FormMain
             MsgBox("backup failed", vbAbort & vbCritical & vbSystem, "Error")
         End Try
     End Sub
-
     Private Sub ToolStripButton10_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton10.Click
         Actionlog("Remove animal tool bar pressed")
         FormAnimalDelete.ShowDialog()
 
     End Sub
-
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
 
         If Loaded Then
@@ -1447,7 +1350,6 @@ Public Class FormMain
         End If
 
     End Sub
-
     Private Function Isreminder() As Boolean
 
         If GlobalVariables.ReTestAddedTime > 0 And GlobalVariables.ReminderState Then
@@ -1457,7 +1359,6 @@ Public Class FormMain
         End If
         Return Isreminder
     End Function
-
     Public Function CallNote(ByVal title As String, ByVal message As String, ByVal image As Image) As Boolean
         Dim SecondForm As New FormNote
         SecondForm.Show()
@@ -1466,7 +1367,6 @@ Public Class FormMain
         SecondForm.PictureBox1.Image = image
         Return True
     End Function
-
     Private Function GetAnimalStats(ByVal name As String) As String
         Dim tests As String = ""
         Dim NumberOfTest As Integer = 0
@@ -1508,7 +1408,6 @@ Public Class FormMain
 
         Return tests
     End Function
-
     Public Function IsAnimalOnFarm(ByVal name As String) As Boolean
         Dim ans As Boolean = False
         ConnectedDB = New DataBaseFunctions()    'Open the database connection
@@ -1533,7 +1432,6 @@ Public Class FormMain
         Next
         Return ans
     End Function
-
     Public Sub ftpErrorlog()
         Try
 
@@ -1592,7 +1490,6 @@ Public Class FormMain
             ErrorHandler(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, GlobalVariables.Linenumber, f)
         End Try
     End Sub
-
     Private Function FtpFolderCreate(folder_name As String, username As String, password As String) As Boolean
 
 
@@ -1614,12 +1511,10 @@ Public Class FormMain
         End Try
         Return True
     End Function
-
     Private Sub ToolStripButton11_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton11.Click
         Actionlog("Refresh tool bar pressed")
         DataGridViewRefresh()
     End Sub
-
     Private Sub CheckReminders()
         Dim Bodystr As String = ""
 
@@ -1643,11 +1538,9 @@ Public Class FormMain
 
 
     End Sub
-
     Private Sub ServiceCheck()
         Module1.Main()
     End Sub
-
     Private Sub ToolStripStatusLabel5_Click(sender As Object, e As EventArgs) Handles ToolStripStatusLabel5.Click
         Try
             Dim psi As New ProcessStartInfo()
@@ -1667,16 +1560,13 @@ Public Class FormMain
             ErrorHandler(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, GlobalVariables.Linenumber, f)
         End Try
     End Sub
-
     Private Sub ToolStripButton13_Click(sender As Object, e As EventArgs) Handles ToolStripButton13.Click
         Actionlog("Reminder tool bar pressed")
         FormReminder.ShowDialog()
     End Sub
-
     Private Sub BackgroundWorker1_DoWork(sender As Object, e As DoWorkEventArgs) Handles BackgroundWorker1.DoWork
         SendErrorReport()
     End Sub
-
     Private Sub GetUserAndPassword()
 
         Dim xmlUrl As String = "http://www.mullacottalpacas.com/aig/private.xml"
@@ -1720,15 +1610,12 @@ Public Class FormMain
             ErrorHandler(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, GlobalVariables.Linenumber, f)
         End Try
     End Sub
-
     Private Sub Button1_Click_1(sender As Object, e As EventArgs)
         CreateTable()
     End Sub
-
     Private Sub ToolStripButton4_Click(sender As Object, e As EventArgs) Handles ShowStoll.Click
         Stoll()
     End Sub
-
     Public Sub Stoll()
 
         If GlobalVariables.Stoll = True Then
@@ -1750,6 +1637,15 @@ Public Class FormMain
         Else
             ShowStoll.Image = My.Resources.Stoll1
         End If
+    End Sub
+
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs)
+        For Each row As DataRow In GlobalVariables.ds.Tables("TestResults").Rows
+
+            Dim sql As String = "Update TestResults Set EPGTotal = " & CInt(row.ItemArray(6)) + CInt(row.ItemArray(7)) & " Where TestID = " & row.ItemArray(0) & ""
+
+            ConnectedDB.UpdateDatabase(sql)
+        Next
     End Sub
 End Class
 

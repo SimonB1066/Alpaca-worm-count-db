@@ -99,8 +99,8 @@ Partial Class Form3
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.ToolStrip2.SuspendLayout()
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -168,7 +168,7 @@ Partial Class Form3
         '
         Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(378, 70)
+        Me.ComboBox2.Location = New System.Drawing.Point(279, 115)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(242, 24)
         Me.ComboBox2.TabIndex = 228
@@ -176,7 +176,7 @@ Partial Class Form3
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(375, 53)
+        Me.Label12.Location = New System.Drawing.Point(276, 98)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(58, 13)
         Me.Label12.TabIndex = 227
@@ -186,7 +186,7 @@ Partial Class Form3
         '
         Me.PictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox10.Image = CType(resources.GetObject("PictureBox10.Image"), System.Drawing.Image)
-        Me.PictureBox10.Location = New System.Drawing.Point(174, 594)
+        Me.PictureBox10.Location = New System.Drawing.Point(174, 639)
         Me.PictureBox10.Name = "PictureBox10"
         Me.PictureBox10.Size = New System.Drawing.Size(49, 40)
         Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -197,7 +197,7 @@ Partial Class Form3
         '
         Me.PictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox8.Image = CType(resources.GetObject("PictureBox8.Image"), System.Drawing.Image)
-        Me.PictureBox8.Location = New System.Drawing.Point(174, 514)
+        Me.PictureBox8.Location = New System.Drawing.Point(174, 559)
         Me.PictureBox8.Name = "PictureBox8"
         Me.PictureBox8.Size = New System.Drawing.Size(49, 40)
         Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -207,7 +207,7 @@ Partial Class Form3
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(20, 113)
+        Me.Label8.Location = New System.Drawing.Point(20, 158)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(52, 13)
         Me.Label8.TabIndex = 224
@@ -216,7 +216,7 @@ Partial Class Form3
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(276, 111)
+        Me.Label7.Location = New System.Drawing.Point(276, 156)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(58, 13)
         Me.Label7.TabIndex = 223
@@ -226,7 +226,7 @@ Partial Class Form3
         '
         Me.PictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox9.Image = CType(resources.GetObject("PictureBox9.Image"), System.Drawing.Image)
-        Me.PictureBox9.Location = New System.Drawing.Point(174, 554)
+        Me.PictureBox9.Location = New System.Drawing.Point(174, 599)
         Me.PictureBox9.Name = "PictureBox9"
         Me.PictureBox9.Size = New System.Drawing.Size(49, 40)
         Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -237,7 +237,7 @@ Partial Class Form3
         '
         Me.PictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), System.Drawing.Image)
-        Me.PictureBox7.Location = New System.Drawing.Point(174, 474)
+        Me.PictureBox7.Location = New System.Drawing.Point(174, 519)
         Me.PictureBox7.Name = "PictureBox7"
         Me.PictureBox7.Size = New System.Drawing.Size(49, 40)
         Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -248,7 +248,7 @@ Partial Class Form3
         '
         Me.PictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
-        Me.PictureBox6.Location = New System.Drawing.Point(174, 434)
+        Me.PictureBox6.Location = New System.Drawing.Point(174, 479)
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.Size = New System.Drawing.Size(49, 40)
         Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -259,7 +259,7 @@ Partial Class Form3
         '
         Me.PictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
-        Me.PictureBox5.Location = New System.Drawing.Point(174, 354)
+        Me.PictureBox5.Location = New System.Drawing.Point(174, 399)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(49, 40)
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -270,7 +270,7 @@ Partial Class Form3
         '
         Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
-        Me.PictureBox4.Location = New System.Drawing.Point(174, 314)
+        Me.PictureBox4.Location = New System.Drawing.Point(174, 359)
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.Size = New System.Drawing.Size(49, 40)
         Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -281,7 +281,7 @@ Partial Class Form3
         '
         Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(174, 274)
+        Me.PictureBox3.Location = New System.Drawing.Point(174, 319)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(49, 40)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -292,7 +292,7 @@ Partial Class Form3
         '
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(174, 234)
+        Me.PictureBox2.Location = New System.Drawing.Point(174, 279)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(49, 40)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -303,7 +303,7 @@ Partial Class Form3
         '
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(174, 194)
+        Me.PictureBox1.Location = New System.Drawing.Point(174, 239)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(49, 40)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -315,7 +315,7 @@ Partial Class Form3
         Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Grade 1 Separate hard pellets", "Grade 2 Pelleted and shaped", "Grade 3 Shaped but with soft pellets", "Grade 4 Shaped but no structure", "Grade 5 No shape or structure", "Grade 6 Watery no solids"})
-        Me.ComboBox1.Location = New System.Drawing.Point(279, 127)
+        Me.ComboBox1.Location = New System.Drawing.Point(279, 172)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(242, 24)
         Me.ComboBox1.TabIndex = 214
@@ -327,7 +327,7 @@ Partial Class Form3
         Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label5.Location = New System.Drawing.Point(222, 674)
+        Me.Label5.Location = New System.Drawing.Point(222, 719)
         Me.Label5.MinimumSize = New System.Drawing.Size(100, 40)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(100, 40)
@@ -340,7 +340,7 @@ Partial Class Form3
         Me.NumericUpDown12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.NumericUpDown12.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown12.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.NumericUpDown12.Location = New System.Drawing.Point(222, 594)
+        Me.NumericUpDown12.Location = New System.Drawing.Point(222, 639)
         Me.NumericUpDown12.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown12.Name = "NumericUpDown12"
         Me.NumericUpDown12.Size = New System.Drawing.Size(100, 40)
@@ -353,7 +353,7 @@ Partial Class Form3
         Me.NumericUpDown11.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown11.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown11.InterceptArrowKeys = False
-        Me.NumericUpDown11.Location = New System.Drawing.Point(222, 634)
+        Me.NumericUpDown11.Location = New System.Drawing.Point(222, 679)
         Me.NumericUpDown11.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown11.Name = "NumericUpDown11"
         Me.NumericUpDown11.Size = New System.Drawing.Size(100, 40)
@@ -365,7 +365,7 @@ Partial Class Form3
         Me.NumericUpDown10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.NumericUpDown10.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown10.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.NumericUpDown10.Location = New System.Drawing.Point(222, 554)
+        Me.NumericUpDown10.Location = New System.Drawing.Point(222, 599)
         Me.NumericUpDown10.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown10.Name = "NumericUpDown10"
         Me.NumericUpDown10.Size = New System.Drawing.Size(100, 40)
@@ -377,7 +377,7 @@ Partial Class Form3
         Me.NumericUpDown9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.NumericUpDown9.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown9.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.NumericUpDown9.Location = New System.Drawing.Point(222, 514)
+        Me.NumericUpDown9.Location = New System.Drawing.Point(222, 559)
         Me.NumericUpDown9.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown9.Name = "NumericUpDown9"
         Me.NumericUpDown9.Size = New System.Drawing.Size(100, 40)
@@ -389,7 +389,7 @@ Partial Class Form3
         Me.NumericUpDown8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.NumericUpDown8.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown8.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.NumericUpDown8.Location = New System.Drawing.Point(222, 474)
+        Me.NumericUpDown8.Location = New System.Drawing.Point(222, 519)
         Me.NumericUpDown8.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown8.Name = "NumericUpDown8"
         Me.NumericUpDown8.Size = New System.Drawing.Size(100, 40)
@@ -401,7 +401,7 @@ Partial Class Form3
         Me.NumericUpDown7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.NumericUpDown7.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown7.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.NumericUpDown7.Location = New System.Drawing.Point(222, 434)
+        Me.NumericUpDown7.Location = New System.Drawing.Point(222, 479)
         Me.NumericUpDown7.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown7.Name = "NumericUpDown7"
         Me.NumericUpDown7.Size = New System.Drawing.Size(100, 40)
@@ -413,7 +413,7 @@ Partial Class Form3
         Me.NumericUpDown6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.NumericUpDown6.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown6.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.NumericUpDown6.Location = New System.Drawing.Point(222, 394)
+        Me.NumericUpDown6.Location = New System.Drawing.Point(222, 439)
         Me.NumericUpDown6.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown6.Name = "NumericUpDown6"
         Me.NumericUpDown6.Size = New System.Drawing.Size(100, 40)
@@ -425,7 +425,7 @@ Partial Class Form3
         Me.NumericUpDown5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.NumericUpDown5.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown5.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.NumericUpDown5.Location = New System.Drawing.Point(222, 354)
+        Me.NumericUpDown5.Location = New System.Drawing.Point(222, 399)
         Me.NumericUpDown5.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown5.Name = "NumericUpDown5"
         Me.NumericUpDown5.Size = New System.Drawing.Size(100, 40)
@@ -437,7 +437,7 @@ Partial Class Form3
         Me.NumericUpDown4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.NumericUpDown4.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.NumericUpDown4.Location = New System.Drawing.Point(222, 314)
+        Me.NumericUpDown4.Location = New System.Drawing.Point(222, 359)
         Me.NumericUpDown4.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown4.Name = "NumericUpDown4"
         Me.NumericUpDown4.Size = New System.Drawing.Size(100, 40)
@@ -449,7 +449,7 @@ Partial Class Form3
         Me.NumericUpDown3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.NumericUpDown3.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown3.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.NumericUpDown3.Location = New System.Drawing.Point(222, 274)
+        Me.NumericUpDown3.Location = New System.Drawing.Point(222, 319)
         Me.NumericUpDown3.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown3.Name = "NumericUpDown3"
         Me.NumericUpDown3.Size = New System.Drawing.Size(100, 40)
@@ -461,7 +461,7 @@ Partial Class Form3
         Me.NumericUpDown2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.NumericUpDown2.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.NumericUpDown2.Location = New System.Drawing.Point(222, 234)
+        Me.NumericUpDown2.Location = New System.Drawing.Point(222, 279)
         Me.NumericUpDown2.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown2.Name = "NumericUpDown2"
         Me.NumericUpDown2.Size = New System.Drawing.Size(100, 40)
@@ -473,7 +473,7 @@ Partial Class Form3
         Me.NumericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.NumericUpDown1.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.NumericUpDown1.Location = New System.Drawing.Point(222, 194)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(222, 239)
         Me.NumericUpDown1.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(100, 40)
@@ -486,7 +486,7 @@ Partial Class Form3
         Me.Label66.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label66.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label66.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label66.Location = New System.Drawing.Point(421, 674)
+        Me.Label66.Location = New System.Drawing.Point(421, 719)
         Me.Label66.MinimumSize = New System.Drawing.Size(100, 40)
         Me.Label66.Name = "Label66"
         Me.Label66.Size = New System.Drawing.Size(100, 40)
@@ -499,7 +499,7 @@ Partial Class Form3
         Me.Label67.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label67.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label67.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label67.Location = New System.Drawing.Point(321, 674)
+        Me.Label67.Location = New System.Drawing.Point(321, 719)
         Me.Label67.MinimumSize = New System.Drawing.Size(100, 40)
         Me.Label67.Name = "Label67"
         Me.Label67.Size = New System.Drawing.Size(100, 40)
@@ -512,7 +512,7 @@ Partial Class Form3
         Me.Label69.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label69.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label69.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label69.Location = New System.Drawing.Point(222, 674)
+        Me.Label69.Location = New System.Drawing.Point(222, 719)
         Me.Label69.MinimumSize = New System.Drawing.Size(100, 40)
         Me.Label69.Name = "Label69"
         Me.Label69.Size = New System.Drawing.Size(100, 40)
@@ -525,7 +525,7 @@ Partial Class Form3
         Me.Label70.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label70.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label70.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label70.Location = New System.Drawing.Point(23, 674)
+        Me.Label70.Location = New System.Drawing.Point(23, 719)
         Me.Label70.MinimumSize = New System.Drawing.Size(200, 40)
         Me.Label70.Name = "Label70"
         Me.Label70.Size = New System.Drawing.Size(200, 40)
@@ -538,7 +538,7 @@ Partial Class Form3
         Me.OPG6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.OPG6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OPG6.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.OPG6.Location = New System.Drawing.Point(421, 634)
+        Me.OPG6.Location = New System.Drawing.Point(421, 679)
         Me.OPG6.MinimumSize = New System.Drawing.Size(100, 40)
         Me.OPG6.Name = "OPG6"
         Me.OPG6.Size = New System.Drawing.Size(100, 40)
@@ -551,7 +551,7 @@ Partial Class Form3
         Me.Label37.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label37.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label37.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label37.Location = New System.Drawing.Point(321, 634)
+        Me.Label37.Location = New System.Drawing.Point(321, 679)
         Me.Label37.MinimumSize = New System.Drawing.Size(100, 40)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(100, 40)
@@ -564,7 +564,7 @@ Partial Class Form3
         Me.Label40.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label40.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label40.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label40.Location = New System.Drawing.Point(23, 634)
+        Me.Label40.Location = New System.Drawing.Point(23, 679)
         Me.Label40.MinimumSize = New System.Drawing.Size(200, 40)
         Me.Label40.Name = "Label40"
         Me.Label40.Size = New System.Drawing.Size(200, 40)
@@ -578,7 +578,7 @@ Partial Class Form3
         Me.OPG5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.OPG5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OPG5.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.OPG5.Location = New System.Drawing.Point(421, 594)
+        Me.OPG5.Location = New System.Drawing.Point(421, 639)
         Me.OPG5.MinimumSize = New System.Drawing.Size(100, 40)
         Me.OPG5.Name = "OPG5"
         Me.OPG5.Size = New System.Drawing.Size(100, 40)
@@ -591,7 +591,7 @@ Partial Class Form3
         Me.Label42.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label42.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label42.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label42.Location = New System.Drawing.Point(321, 594)
+        Me.Label42.Location = New System.Drawing.Point(321, 639)
         Me.Label42.MinimumSize = New System.Drawing.Size(100, 40)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(100, 40)
@@ -604,7 +604,7 @@ Partial Class Form3
         Me.Label45.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label45.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label45.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label45.Location = New System.Drawing.Point(23, 594)
+        Me.Label45.Location = New System.Drawing.Point(23, 639)
         Me.Label45.MinimumSize = New System.Drawing.Size(200, 40)
         Me.Label45.Name = "Label45"
         Me.Label45.Size = New System.Drawing.Size(200, 40)
@@ -618,7 +618,7 @@ Partial Class Form3
         Me.OPG4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.OPG4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OPG4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.OPG4.Location = New System.Drawing.Point(421, 554)
+        Me.OPG4.Location = New System.Drawing.Point(421, 599)
         Me.OPG4.MinimumSize = New System.Drawing.Size(100, 40)
         Me.OPG4.Name = "OPG4"
         Me.OPG4.Size = New System.Drawing.Size(100, 40)
@@ -631,7 +631,7 @@ Partial Class Form3
         Me.Label47.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label47.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label47.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label47.Location = New System.Drawing.Point(321, 554)
+        Me.Label47.Location = New System.Drawing.Point(321, 599)
         Me.Label47.MinimumSize = New System.Drawing.Size(100, 40)
         Me.Label47.Name = "Label47"
         Me.Label47.Size = New System.Drawing.Size(100, 40)
@@ -644,7 +644,7 @@ Partial Class Form3
         Me.Label50.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label50.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label50.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label50.Location = New System.Drawing.Point(23, 554)
+        Me.Label50.Location = New System.Drawing.Point(23, 599)
         Me.Label50.MinimumSize = New System.Drawing.Size(200, 40)
         Me.Label50.Name = "Label50"
         Me.Label50.Size = New System.Drawing.Size(200, 40)
@@ -658,7 +658,7 @@ Partial Class Form3
         Me.OPG3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.OPG3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OPG3.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.OPG3.Location = New System.Drawing.Point(421, 514)
+        Me.OPG3.Location = New System.Drawing.Point(421, 559)
         Me.OPG3.MinimumSize = New System.Drawing.Size(100, 40)
         Me.OPG3.Name = "OPG3"
         Me.OPG3.Size = New System.Drawing.Size(100, 40)
@@ -671,7 +671,7 @@ Partial Class Form3
         Me.Label52.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label52.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label52.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label52.Location = New System.Drawing.Point(321, 514)
+        Me.Label52.Location = New System.Drawing.Point(321, 559)
         Me.Label52.MinimumSize = New System.Drawing.Size(100, 40)
         Me.Label52.Name = "Label52"
         Me.Label52.Size = New System.Drawing.Size(100, 40)
@@ -684,7 +684,7 @@ Partial Class Form3
         Me.Label55.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label55.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label55.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label55.Location = New System.Drawing.Point(23, 514)
+        Me.Label55.Location = New System.Drawing.Point(23, 559)
         Me.Label55.MinimumSize = New System.Drawing.Size(200, 40)
         Me.Label55.Name = "Label55"
         Me.Label55.Size = New System.Drawing.Size(200, 40)
@@ -698,7 +698,7 @@ Partial Class Form3
         Me.OPG2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.OPG2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OPG2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.OPG2.Location = New System.Drawing.Point(421, 474)
+        Me.OPG2.Location = New System.Drawing.Point(421, 519)
         Me.OPG2.MinimumSize = New System.Drawing.Size(100, 40)
         Me.OPG2.Name = "OPG2"
         Me.OPG2.Size = New System.Drawing.Size(100, 40)
@@ -711,7 +711,7 @@ Partial Class Form3
         Me.Label57.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label57.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label57.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label57.Location = New System.Drawing.Point(321, 474)
+        Me.Label57.Location = New System.Drawing.Point(321, 519)
         Me.Label57.MinimumSize = New System.Drawing.Size(100, 40)
         Me.Label57.Name = "Label57"
         Me.Label57.Size = New System.Drawing.Size(100, 40)
@@ -724,7 +724,7 @@ Partial Class Form3
         Me.Label60.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label60.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label60.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label60.Location = New System.Drawing.Point(23, 474)
+        Me.Label60.Location = New System.Drawing.Point(23, 519)
         Me.Label60.MinimumSize = New System.Drawing.Size(200, 40)
         Me.Label60.Name = "Label60"
         Me.Label60.Size = New System.Drawing.Size(200, 40)
@@ -738,7 +738,7 @@ Partial Class Form3
         Me.OPG1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.OPG1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OPG1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.OPG1.Location = New System.Drawing.Point(421, 434)
+        Me.OPG1.Location = New System.Drawing.Point(421, 479)
         Me.OPG1.MinimumSize = New System.Drawing.Size(100, 40)
         Me.OPG1.Name = "OPG1"
         Me.OPG1.Size = New System.Drawing.Size(100, 40)
@@ -751,7 +751,7 @@ Partial Class Form3
         Me.Label62.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label62.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label62.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label62.Location = New System.Drawing.Point(321, 434)
+        Me.Label62.Location = New System.Drawing.Point(321, 479)
         Me.Label62.MinimumSize = New System.Drawing.Size(100, 40)
         Me.Label62.Name = "Label62"
         Me.Label62.Size = New System.Drawing.Size(100, 40)
@@ -764,7 +764,7 @@ Partial Class Form3
         Me.Label65.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label65.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label65.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label65.Location = New System.Drawing.Point(23, 434)
+        Me.Label65.Location = New System.Drawing.Point(23, 479)
         Me.Label65.MinimumSize = New System.Drawing.Size(200, 40)
         Me.Label65.Name = "Label65"
         Me.Label65.Size = New System.Drawing.Size(200, 40)
@@ -778,7 +778,7 @@ Partial Class Form3
         Me.Label31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label31.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label31.Location = New System.Drawing.Point(421, 394)
+        Me.Label31.Location = New System.Drawing.Point(421, 439)
         Me.Label31.MinimumSize = New System.Drawing.Size(100, 40)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(100, 40)
@@ -791,7 +791,7 @@ Partial Class Form3
         Me.EPG6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.EPG6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EPG6.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.EPG6.Location = New System.Drawing.Point(321, 394)
+        Me.EPG6.Location = New System.Drawing.Point(321, 439)
         Me.EPG6.MinimumSize = New System.Drawing.Size(100, 40)
         Me.EPG6.Name = "EPG6"
         Me.EPG6.Size = New System.Drawing.Size(100, 40)
@@ -804,7 +804,7 @@ Partial Class Form3
         Me.Label35.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label35.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label35.Location = New System.Drawing.Point(23, 394)
+        Me.Label35.Location = New System.Drawing.Point(23, 439)
         Me.Label35.MinimumSize = New System.Drawing.Size(200, 40)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(200, 40)
@@ -818,7 +818,7 @@ Partial Class Form3
         Me.Label26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label26.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label26.Location = New System.Drawing.Point(421, 354)
+        Me.Label26.Location = New System.Drawing.Point(421, 399)
         Me.Label26.MinimumSize = New System.Drawing.Size(100, 40)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(100, 40)
@@ -831,7 +831,7 @@ Partial Class Form3
         Me.EPG5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.EPG5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EPG5.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.EPG5.Location = New System.Drawing.Point(321, 354)
+        Me.EPG5.Location = New System.Drawing.Point(321, 399)
         Me.EPG5.MinimumSize = New System.Drawing.Size(100, 40)
         Me.EPG5.Name = "EPG5"
         Me.EPG5.Size = New System.Drawing.Size(100, 40)
@@ -844,7 +844,7 @@ Partial Class Form3
         Me.Label30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label30.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label30.Location = New System.Drawing.Point(23, 354)
+        Me.Label30.Location = New System.Drawing.Point(23, 399)
         Me.Label30.MinimumSize = New System.Drawing.Size(200, 40)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(200, 40)
@@ -858,7 +858,7 @@ Partial Class Form3
         Me.Label21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label21.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label21.Location = New System.Drawing.Point(421, 314)
+        Me.Label21.Location = New System.Drawing.Point(421, 359)
         Me.Label21.MinimumSize = New System.Drawing.Size(100, 40)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(100, 40)
@@ -871,7 +871,7 @@ Partial Class Form3
         Me.EPG4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.EPG4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EPG4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.EPG4.Location = New System.Drawing.Point(321, 314)
+        Me.EPG4.Location = New System.Drawing.Point(321, 359)
         Me.EPG4.MinimumSize = New System.Drawing.Size(100, 40)
         Me.EPG4.Name = "EPG4"
         Me.EPG4.Size = New System.Drawing.Size(100, 40)
@@ -884,7 +884,7 @@ Partial Class Form3
         Me.Label25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label25.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label25.Location = New System.Drawing.Point(23, 314)
+        Me.Label25.Location = New System.Drawing.Point(23, 359)
         Me.Label25.MinimumSize = New System.Drawing.Size(200, 40)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(200, 40)
@@ -898,7 +898,7 @@ Partial Class Form3
         Me.Label16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label16.Location = New System.Drawing.Point(421, 274)
+        Me.Label16.Location = New System.Drawing.Point(421, 319)
         Me.Label16.MinimumSize = New System.Drawing.Size(100, 40)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(100, 40)
@@ -911,7 +911,7 @@ Partial Class Form3
         Me.EPG3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.EPG3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EPG3.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.EPG3.Location = New System.Drawing.Point(321, 274)
+        Me.EPG3.Location = New System.Drawing.Point(321, 319)
         Me.EPG3.MinimumSize = New System.Drawing.Size(100, 40)
         Me.EPG3.Name = "EPG3"
         Me.EPG3.Size = New System.Drawing.Size(100, 40)
@@ -924,7 +924,7 @@ Partial Class Form3
         Me.Label20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label20.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label20.Location = New System.Drawing.Point(23, 274)
+        Me.Label20.Location = New System.Drawing.Point(23, 319)
         Me.Label20.MinimumSize = New System.Drawing.Size(200, 40)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(200, 40)
@@ -938,7 +938,7 @@ Partial Class Form3
         Me.Label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label11.Location = New System.Drawing.Point(421, 234)
+        Me.Label11.Location = New System.Drawing.Point(421, 279)
         Me.Label11.MinimumSize = New System.Drawing.Size(100, 40)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(100, 40)
@@ -951,7 +951,7 @@ Partial Class Form3
         Me.EPG2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.EPG2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EPG2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.EPG2.Location = New System.Drawing.Point(321, 234)
+        Me.EPG2.Location = New System.Drawing.Point(321, 279)
         Me.EPG2.MinimumSize = New System.Drawing.Size(100, 40)
         Me.EPG2.Name = "EPG2"
         Me.EPG2.Size = New System.Drawing.Size(100, 40)
@@ -964,7 +964,7 @@ Partial Class Form3
         Me.Label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label15.Location = New System.Drawing.Point(23, 234)
+        Me.Label15.Location = New System.Drawing.Point(23, 279)
         Me.Label15.MinimumSize = New System.Drawing.Size(200, 40)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(200, 40)
@@ -978,7 +978,7 @@ Partial Class Form3
         Me.Label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label9.Location = New System.Drawing.Point(421, 194)
+        Me.Label9.Location = New System.Drawing.Point(421, 239)
         Me.Label9.MinimumSize = New System.Drawing.Size(100, 40)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(100, 40)
@@ -991,7 +991,7 @@ Partial Class Form3
         Me.EPG1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.EPG1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EPG1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.EPG1.Location = New System.Drawing.Point(321, 194)
+        Me.EPG1.Location = New System.Drawing.Point(321, 239)
         Me.EPG1.MinimumSize = New System.Drawing.Size(100, 40)
         Me.EPG1.Name = "EPG1"
         Me.EPG1.Size = New System.Drawing.Size(100, 40)
@@ -1000,7 +1000,7 @@ Partial Class Form3
         'DateTimePicker1
         '
         Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Location = New System.Drawing.Point(23, 129)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(23, 174)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(200, 22)
         Me.DateTimePicker1.TabIndex = 149
@@ -1012,7 +1012,7 @@ Partial Class Form3
         Me.Label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label10.Location = New System.Drawing.Point(23, 194)
+        Me.Label10.Location = New System.Drawing.Point(23, 239)
         Me.Label10.MinimumSize = New System.Drawing.Size(200, 40)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(200, 40)
@@ -1024,7 +1024,7 @@ Partial Class Form3
         Me.Label6.AutoSize = True
         Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(421, 176)
+        Me.Label6.Location = New System.Drawing.Point(421, 221)
         Me.Label6.MinimumSize = New System.Drawing.Size(100, 2)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(100, 18)
@@ -1036,7 +1036,7 @@ Partial Class Form3
         Me.Label4.AutoSize = True
         Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(321, 176)
+        Me.Label4.Location = New System.Drawing.Point(321, 221)
         Me.Label4.MinimumSize = New System.Drawing.Size(100, 2)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(100, 18)
@@ -1048,41 +1048,42 @@ Partial Class Form3
         Me.Label1.AutoSize = True
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(23, 176)
+        Me.Label1.Location = New System.Drawing.Point(23, 221)
         Me.Label1.MinimumSize = New System.Drawing.Size(200, 2)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(200, 18)
         Me.Label1.TabIndex = 143
         Me.Label1.Text = "Parasite                            "
         '
-        'TextBox1
-        '
-        Me.TextBox1.BackColor = System.Drawing.SystemColors.Control
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(23, 75)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(142, 19)
-        Me.TextBox1.TabIndex = 142
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(222, 176)
+        Me.Label2.Location = New System.Drawing.Point(222, 221)
         Me.Label2.MinimumSize = New System.Drawing.Size(100, 2)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(100, 18)
         Me.Label2.TabIndex = 230
         Me.Label2.Text = "Slide"
         '
+        'TextBox1
+        '
+        Me.TextBox1.BackColor = System.Drawing.SystemColors.Control
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(23, 108)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ReadOnly = True
+        Me.TextBox1.Size = New System.Drawing.Size(250, 31)
+        Me.TextBox1.TabIndex = 231
+        '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(543, 736)
+        Me.ClientSize = New System.Drawing.Size(543, 781)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.ToolStrip2)
         Me.Controls.Add(Me.ComboBox2)
@@ -1157,7 +1158,6 @@ Partial Class Form3
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Name = "Form3"
         Me.Text = "Modified Stoll test sheet"
@@ -1266,6 +1266,6 @@ Partial Class Form3
     Friend WithEvents Label6 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents TextBox1 As TextBox
 End Class

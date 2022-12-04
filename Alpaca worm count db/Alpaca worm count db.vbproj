@@ -31,8 +31,8 @@
     <PublisherName>Simon brookes, Mullacott Alpacas</PublisherName>
     <SuiteName>Mullacott Alpacas</SuiteName>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>8</ApplicationRevision>
-    <ApplicationVersion>9.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>10.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -446,6 +446,7 @@
     <None Include="Resources\x.gif" />
     <None Include="Resources\Windows1.png" />
     <None Include="Resources\Windows11.png" />
+    <None Include="Resources\WDB.ico" />
     <Content Include="Service\AWC.exe.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

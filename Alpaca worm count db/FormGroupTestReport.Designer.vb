@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormGroupTestReport
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,21 +20,21 @@ Partial Class FormGroupTestReport
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
-        Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.CheckedListBox2 = New System.Windows.Forms.CheckedListBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -52,29 +52,11 @@ Partial Class FormGroupTestReport
         Me.RichTextBox1.WordWrap = False
         Me.RichTextBox1.ZoomFactor = 0.5!
         '
-        'CheckedListBox1
-        '
-        Me.CheckedListBox1.CheckOnClick = True
-        Me.CheckedListBox1.FormattingEnabled = True
-        Me.CheckedListBox1.Location = New System.Drawing.Point(5, 95)
-        Me.CheckedListBox1.Name = "CheckedListBox1"
-        Me.CheckedListBox1.Size = New System.Drawing.Size(257, 169)
-        Me.CheckedListBox1.TabIndex = 126
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(2, 79)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(58, 13)
-        Me.Label12.TabIndex = 125
-        Me.Label12.Text = "Test group"
-        '
         'CheckedListBox2
         '
         Me.CheckedListBox2.CheckOnClick = True
         Me.CheckedListBox2.FormattingEnabled = True
-        Me.CheckedListBox2.Location = New System.Drawing.Point(282, 96)
+        Me.CheckedListBox2.Location = New System.Drawing.Point(284, 95)
         Me.CheckedListBox2.Name = "CheckedListBox2"
         Me.CheckedListBox2.Size = New System.Drawing.Size(282, 169)
         Me.CheckedListBox2.TabIndex = 127
@@ -82,7 +64,7 @@ Partial Class FormGroupTestReport
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(279, 79)
+        Me.Label1.Location = New System.Drawing.Point(281, 79)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(43, 13)
         Me.Label1.TabIndex = 128
@@ -90,7 +72,7 @@ Partial Class FormGroupTestReport
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(458, 99)
+        Me.Button4.Location = New System.Drawing.Point(460, 98)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(78, 26)
         Me.Button4.TabIndex = 129
@@ -99,7 +81,7 @@ Partial Class FormGroupTestReport
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(458, 237)
+        Me.Button5.Location = New System.Drawing.Point(460, 236)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(78, 26)
         Me.Button5.TabIndex = 130
@@ -109,22 +91,12 @@ Partial Class FormGroupTestReport
         'ToolStrip1
         '
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(62, 62)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton3, Me.ToolStripButton4, Me.ToolStripButton2})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton3, Me.ToolStripButton4, Me.ToolStripButton2})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(1029, 69)
         Me.ToolStrip1.TabIndex = 136
         Me.ToolStrip1.Text = "ToolStrip1"
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton1.Image = Global.WindowsApplication1.My.Resources.Resources.Report
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(66, 66)
-        Me.ToolStripButton1.Text = "ToolStripButton1"
-        Me.ToolStripButton1.ToolTipText = "Build the report from selected animals and dates."
         '
         'ToolStripButton3
         '
@@ -156,19 +128,27 @@ Partial Class FormGroupTestReport
         Me.ToolStripButton2.Text = "ToolStripButton2"
         Me.ToolStripButton2.ToolTipText = "Close this form."
         '
+        'CheckedListBox1
+        '
+        Me.CheckedListBox1.CheckOnClick = True
+        Me.CheckedListBox1.FormattingEnabled = True
+        Me.CheckedListBox1.Location = New System.Drawing.Point(12, 95)
+        Me.CheckedListBox1.Name = "CheckedListBox1"
+        Me.CheckedListBox1.Size = New System.Drawing.Size(257, 169)
+        Me.CheckedListBox1.TabIndex = 141
+        '
         'FormGroupTestReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(1029, 782)
+        Me.Controls.Add(Me.CheckedListBox1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.CheckedListBox2)
-        Me.Controls.Add(Me.CheckedListBox1)
-        Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.RichTextBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.Name = "FormGroupTestReport"
@@ -181,15 +161,14 @@ Partial Class FormGroupTestReport
     End Sub
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents PrintDocument1 As System.Drawing.Printing.PrintDocument
-    Friend WithEvents CheckedListBox1 As System.Windows.Forms.CheckedListBox
-    Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents CheckedListBox2 As System.Windows.Forms.CheckedListBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents ToolStrip1 As ToolStrip
-    Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents ToolStripButton2 As ToolStripButton
     Friend WithEvents ToolStripButton3 As ToolStripButton
     Friend WithEvents ToolStripButton4 As ToolStripButton
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents CheckedListBox1 As CheckedListBox
 End Class

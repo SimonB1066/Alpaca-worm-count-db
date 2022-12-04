@@ -111,6 +111,7 @@ Public Class FormTest
         drow.Item(19) = NumericUpDown12.Value.ToString("00.##") & NumericUpDown24.Value.ToString("00.##")
         drow.Item(20) = "No Treatment"
         drow.Item(21) = "MM"
+        drow.Item(24) = CInt(Label67.Text) + CInt(Label66.Text)
 
         Dim dtUK As Date = DateTime.ParseExact(DateTimePicker1.Value.ToShortDateString, "dd/MM/yyyy", CultureInfo.InvariantCulture)
         Dim sql As String = "INSERT INTO TestResults (TestDate,TestName,TestFaecalGrade,TestNumber,TestNumberName,TestEPGTotal,TestOPGTotal,TestTrichostrongyles,TestTrichurius,TestNematordirus,TestCapillarid,TestMoniezid,TestEPGUnidentifed,TestEmac,TestEivitaesis,TestEalpacae,TestElamae,TestEpunoensis,TestOPGUnidentifed,TestTreat,Name) VALUES (#" & dtUK & "#,'" & TextBox1.Text & "','" & (ComboBox1.SelectedIndex + 1).ToString & "','" & "0" & "','" & GlobalVariables.TestGroupName & "','" & Label67.Text & "','" & Label66.Text & "','" & drow.Item(8) & "','" & drow.Item(9) & "','" & drow.Item(10) & "','" & drow.Item(11) & "','" & drow.Item(12) & "','" & drow.Item(13) & "','" & drow.Item(14) & "','" & drow.Item(15) & "','" & drow.Item(16) & "','" & drow.Item(17) & "','" & drow.Item(18) & "','" & drow.Item(19) & "','" & drow.Item(20) & "','" & drow.Item(21) & "')"

@@ -24,7 +24,7 @@ Partial Class FormEmail
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -38,10 +38,10 @@ Partial Class FormEmail
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'Timer1
+        'NotifyIcon1
         '
-        Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 3500
+        Me.NotifyIcon1.Text = "NotifyIcon1"
+        Me.NotifyIcon1.Visible = True
         '
         'FormEmail
         '
@@ -61,5 +61,5 @@ Partial Class FormEmail
     End Sub
 
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Timer1 As Timer
+    Friend WithEvents NotifyIcon1 As NotifyIcon
 End Class
