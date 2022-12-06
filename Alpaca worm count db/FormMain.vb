@@ -136,6 +136,9 @@ Public Class FormMain
                         sql = "UPDATE TestResults SET EPGTotal=" & CInt(Row.ItemArray(6)) + CInt(Row.ItemArray(7)) & " WHERE TestID=" & Row.ItemArray(0)
                         ConnectedDB.UpdateDatabase(sql)
                     Next
+                    Dim myDir = Directory.GetDirectories("C:\WormCountDatabase\Application Files\").OrderByDescending(Function(f) New DirectoryInfo(f).LastWriteTime).First()
+                    Dim myFile = myDir & "\" 'Directory.GetDirectories("C:\WormCountDatabase\Application Files\").OrderByDescending(Function(f) New FileInfo(f).LastWriteTime).First() & "\"
+                    My.Computer.FileSystem.CopyFile(myFile & "Service\Body.HTML", "C:\WormCountDATA\Body.HTML")
                 End If
             Catch ex As Exception
                 MsgBox(ex.Message)
