@@ -8,6 +8,7 @@ Imports System.Deployment.Application
 Imports System.Reflection
 Imports System.ComponentModel
 Imports System.Globalization
+Imports System.Text.RegularExpressions
 
 Public Class FormMain
 
@@ -64,47 +65,6 @@ Public Class FormMain
         Catch
         End Try
     End Sub
-    Public Sub CheckWebForUpdates()
-
-        Try
-
-            FtpFolderCreate("ftp://www.mullacottalpacas.com/wwwroot/aig/WDB_Updates/", GlobalVariables.User, GlobalVariables.Password)
-
-            'Send error log
-            Dim request As System.Net.FtpWebRequest = DirectCast(System.Net.WebRequest.Create("ftp://www.mullacottalpacas.com/wwwroot/aig/"), System.Net.FtpWebRequest)
-            request.EnableSsl = False
-            request.UsePassive = False
-            request.Credentials = New System.Net.NetworkCredential(GlobalVariables.User, GlobalVariables.Password)
-            request.Method = System.Net.WebRequestMethods.Ftp.ListDirectory
-            request.KeepAlive = False
-
-            Dim reader As New StreamReader(request.GetResponse().GetResponseStream())
-            Dim line = reader.ReadLine()
-            Dim lines As New List(Of String)
-
-            Do Until line Is Nothing
-                lines.Add(line)
-                If CDbl(Val(Replace(Replace(line, "_", ""), ".txt", ""))) > CDbl(Val(Replace(GlobalVariables.Version, ".", ""))) Then
-                    GlobalVariables.LatestUpdate = line
-                    UpdateMsgBox.ShowDialog()
-                    Exit Sub
-                End If
-                line = reader.ReadLine
-
-            Loop
-            MsgBox("No update avalable")
-            Exit Sub
-
-            Dim info As String = My.Application.Info.Version.ToString
-
-        Catch ex As Exception
-            Dim st As New StackTrace(True)
-            st = New StackTrace(ex, True)
-            GlobalVariables.Linenumber = st.GetFrame(0).GetFileLineNumber().ToString()
-            Dim f As New StackFrame
-            ErrorHandler(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, GlobalVariables.Linenumber, f)
-        End Try
-    End Sub
     Private Sub CheckUpdates()
         Try
             'Check if this system already has a database
@@ -140,6 +100,7 @@ Public Class FormMain
                     My.Computer.FileSystem.CopyFile(myFile & "Service\AWC.xml", "C:\WormCountDATA\Service\AWC.xml")
                     My.Computer.FileSystem.CopyFile(myFile & "Service\AWC.exe.manifest", "C:\WormCountDATA\Service\AWC.exe.manifest")
                     My.Computer.FileSystem.CopyFile(myFile & "Service\UnInstall.bat", "C:\WormCountDATA\Service\UnInstall.bat")
+                    My.Computer.FileSystem.CopyFile(myFile & "Service\Body.HTML", "C:\WormCountDATA\Body.HTML")
 
 
                 Else
@@ -149,8 +110,39 @@ Public Class FormMain
             End If
 
 
+            'Check for database mod in version 10
+            ConnectedDB = New DataBaseFunctions()
+            GlobalVariables.ds = ConnectedDB.PopulateDataSet()
+            Dim found As Boolean = False
+
+            For j = 0 To GlobalVariables.ds.Tables("TestResults").Columns.Count - 1
+                If Regex.IsMatch(GlobalVariables.ds.Tables("TestResults").Columns(j).ColumnName, "\b" + Regex.Escape("EPGTotal") + "\b") Then
+                    found = True
+                End If
+            Next
+
+            Try
+                If Not found Then
+                    MsgBox("The database has to be updated due to a version change. This many take some time.", vbOKOnly, "Message")
+                    'Add the field and fill with data
+                    Dim sql As String = "ALTER TABLE TestResults ADD [EPGTotal] INT NULL"
+                    ConnectedDB.UpdateDatabase(sql)
+                    ConnectedDB.Close()
+                    ConnectedDB = New DataBaseFunctions()
+                    GlobalVariables.ds = ConnectedDB.PopulateDataSet()
+                    'Now create the data for the missing tests
+                    For Each Row As DataRow In GlobalVariables.ds.Tables("TestResults").Rows
+                        Row.ItemArray(24) = CInt(Row.ItemArray(6)) + CInt(Row.ItemArray(7))
+                        sql = "UPDATE TestResults SET EPGTotal=" & CInt(Row.ItemArray(6)) + CInt(Row.ItemArray(7)) & " WHERE TestID=" & Row.ItemArray(0)
+                        ConnectedDB.UpdateDatabase(sql)
+                    Next
+                End If
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
         Catch ex As Exception
-            Dim st As New StackTrace(True)
+                Dim st As New StackTrace(True)
             st = New StackTrace(ex, True)
             GlobalVariables.Linenumber = st.GetFrame(0).GetFileLineNumber().ToString()
             Dim f As New StackFrame
@@ -160,7 +152,7 @@ Public Class FormMain
     Public Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
 
-        Threading.Thread.Sleep(5000)
+        'Threading.Thread.Sleep(5000)
         Me.Opacity = 100
         Systemlog("System: " & "Load", "   Module: " & "Form1_Load", "    Line number:  " & "0", "System started")
 
@@ -179,7 +171,7 @@ Public Class FormMain
         GlobalVariables.Version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString
 
 
-        CheckUpdates()
+
 
         GlobalVariables.DbDriveLocation = "C:\WormCountDATA\"
         Try
@@ -195,7 +187,7 @@ Public Class FormMain
             GlobalVariables.OnFarm = 1
 
 
-
+            GlobalVariables.DbDriveLocation = GetXMLData("BackEndLocation")
             GlobalVariables.pass = GetXMLData("PassRate")
             GlobalVariables.Email = GetXMLData("Email")
             GlobalVariables.FarmName = GetXMLData("FarmName")
@@ -264,7 +256,7 @@ Public Class FormMain
 
             SetXMLData()
 
-
+            CheckUpdates()
 
             If Process.GetProcessesByName(Process.GetCurrentProcess.ProcessName).Length > 1 Then
 

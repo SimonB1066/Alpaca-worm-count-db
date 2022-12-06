@@ -26,11 +26,6 @@ Public Class DataBaseFunctions
                     da.Fill(ds, "Alpaca")
                 End Using
 
-                Using da = New OleDb.OleDbDataAdapter("SELECT * FROM " & "TestResults Query", OpenCon)
-                    Dim builder As New OleDb.OleDbCommandBuilder
-                    builder = New OleDb.OleDbCommandBuilder(da)
-                    da.Fill(ds, "TestResults Query")
-                End Using
 
                 Using da = New OleDb.OleDbDataAdapter("SELECT * FROM " & "TestGroup ORDER BY ID DESC", OpenCon)
                     Dim tbuilder As New OleDb.OleDbCommandBuilder

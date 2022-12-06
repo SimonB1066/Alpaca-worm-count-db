@@ -31,7 +31,7 @@
     <PublisherName>Simon brookes, Mullacott Alpacas</PublisherName>
     <SuiteName>Mullacott Alpacas</SuiteName>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>10.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -395,6 +395,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <Content Include="body.html" />
     <Content Include="InstallUtil.exe.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
