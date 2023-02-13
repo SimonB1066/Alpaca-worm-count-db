@@ -77,8 +77,9 @@ Public Class FormGroupTestReport
                 'Check that the entry is in the group and also the animal is in that report
                 If ReportGroup.Contains(Group) Then  'ReportGroup is the checkbox selection on the form
                     'Now get the data
-                    RichTextBox1.AppendText("Test period--" & Group & vbNewLine & vbNewLine)
-                    RichTextBox1.AppendText("Name              Test date      Total EPG" & vbNewLine)
+                    RichTextBox1.AppendText("Test period--" & Group & vbNewLine)
+                    RichTextBox1.AppendText("Test types (MM)= McMasters  (MS)=Modified Stoll's" & vbNewLine & vbNewLine)
+                    RichTextBox1.AppendText("Name              Test date      EPG  OPG  Test  Notes" & vbNewLine)
                     Dim data() As DataRow
 
 
@@ -152,93 +153,118 @@ Public Class FormGroupTestReport
                             str = str & data(j).ItemArray(2)
                             str = str.PadRight(20, " ")
                             str = str & data(j).ItemArray(1).ToString.Substring(0, 10)
-                            str = str.PadRight(35, " ")
-                            str = str & CInt(data(j).ItemArray(6)) + CInt(data(j).ItemArray(7))
-                            str = str.PadRight(40, " ")
+                            str = str.PadRight(34, " ")
+                            str = str & CInt(data(j).ItemArray(6)).ToString.PadLeft(4)
+                            str = str.PadRight(39, " ")
+                            str = str & CInt(data(j).ItemArray(7)).ToString.PadLeft(4)
+                            str = str.PadRight(45, " ")
 
 
-                            If Convert.ToInt16(data(j).ItemArray(8)) > 0 Then
-                                Eggs = System.Convert.ToInt32(data(j).ItemArray(8).ToString.Substring(0, 2))
-                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(8).ToString.Substring(2, 2))
-                                strEggs = AddEggString(str, strEggs, Eggs, "..Trichostrongyles   ")
-                            End If
-
-                            If Convert.ToInt16(data(j).ItemArray(9)) > 0 Then
-                                Eggs = System.Convert.ToInt32(data(j).ItemArray(9).ToString.Substring(0, 2))
-                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(9).ToString.Substring(2, 2))
-                                strEggs = AddEggString(str, strEggs, Eggs, "..Trichurius   ")
-                            End If
-
-                            If Convert.ToInt16(data(j).ItemArray(10)) > 0 Then
-                                Eggs = System.Convert.ToInt32(data(j).ItemArray(10).ToString.Substring(0, 2))
-                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(10).ToString.Substring(2, 2))
-                                strEggs = AddEggString(str, strEggs, Eggs, "..Nematordirus   ")
-                            End If
-
-                            If Convert.ToInt16(data(j).ItemArray(11)) > 0 Then
-                                Eggs = System.Convert.ToInt32(data(j).ItemArray(11).ToString.Substring(0, 2))
-                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(11).ToString.Substring(2, 2))
-                                strEggs = AddEggString(str, strEggs, Eggs, "..Capillarid   ")
-                            End If
-
-                            If Convert.ToInt16(data(j).ItemArray(12)) > 0 Then
-                                Eggs = System.Convert.ToInt32(data(j).ItemArray(12).ToString.Substring(0, 2))
-                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(12).ToString.Substring(2, 2))
-                                strEggs = AddEggString(str, strEggs, Eggs, "..Moniezid   ")
-                            End If
-
-                            If Convert.ToInt16(data(j).ItemArray(13)) > 0 Then
-                                Eggs = System.Convert.ToInt32(data(j).ItemArray(13).ToString.Substring(0, 2))
-                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(13).ToString.Substring(2, 2))
-                                strEggs = AddEggString(str, strEggs, Eggs, "..E-mac   ")
-                            End If
-
-                            If Convert.ToInt16(data(j).ItemArray(14)) > 0 Then
-                                Eggs = System.Convert.ToInt32(data(j).ItemArray(14).ToString.Substring(0, 2))
-                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(14).ToString.Substring(2, 2))
-                                strEggs = AddEggString(str, strEggs, Eggs, "..E-ivitaesis   ")
-                            End If
-
-                            If Convert.ToInt16(data(j).ItemArray(15)) > 0 Then
-                                Eggs = System.Convert.ToInt32(data(j).ItemArray(15).ToString.Substring(0, 2))
-                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(15).ToString.Substring(2, 2))
-                                strEggs = AddEggString(str, strEggs, Eggs, "..E-alpacae   ")
-                            End If
-
-                            If Convert.ToInt16(data(j).ItemArray(16)) > 0 Then
-                                Eggs = System.Convert.ToInt32(data(j).ItemArray(16).ToString.Substring(0, 2))
-                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(16).ToString.Substring(2, 2))
-                                strEggs = AddEggString(str, strEggs, Eggs, "..E-lamae   ")
-                            End If
-
-                            If Convert.ToInt16(data(j).ItemArray(17)) > 0 Then
-                                Eggs = System.Convert.ToInt32(data(j).ItemArray(17).ToString.Substring(0, 2))
-                                Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(17).ToString.Substring(2, 2))
-                                strEggs = AddEggString(str, strEggs, Eggs, "..E-punoensis   ")
-                            End If
 
 
-                            'Change the colour if it is a fail and send the string to the report
-                            If backcolour Then
-                                RichTextBox1.SelectionBackColor = Color.LightSteelBlue
+                            If data(j).ItemArray(21) = "MM" Then
+                                str = str & "MM"
                             Else
-                                RichTextBox1.SelectionBackColor = Color.White
+                                str = str & "MS"
                             End If
-                            backcolour = Not backcolour
+                            str = str.PadRight(51, " ")
 
-                            str = str & strEggs
-                            str = str.PadRight(74, " ")
-                            Dim wwStr As String = WordWrap(str, 75)
 
-                            If (data(j).ItemArray(24) < GlobalVariables.pass) And (Convert.ToInt16(data(j).ItemArray(13)) <= 0) Then
-                                RichTextBox1.SelectionColor = Color.Black
-                                RichTextBox1.AppendText(wwStr)
-                            Else
-                                RichTextBox1.SelectionColor = Color.Red
-                                RichTextBox1.AppendText(wwStr)
+
+                            If Convert.ToInt64(data(j).ItemArray(8)) > 0 Then
+                                    Eggs = System.Convert.ToInt32(data(j).ItemArray(8).ToString.Substring(0, 3))
+                                    Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(8).ToString.Substring(3, 3))
+                                    strEggs = AddEggString(str, strEggs, Eggs, "..Trichostrongyles   ")
+                                End If
+
+                                If Convert.ToInt64(data(j).ItemArray(9)) > 0 Then
+                                    Eggs = System.Convert.ToInt32(data(j).ItemArray(9).ToString.Substring(0, 3))
+                                    Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(9).ToString.Substring(3, 3))
+                                    strEggs = AddEggString(str, strEggs, Eggs, "..Trichurius   ")
+                                End If
+
+                                If Convert.ToInt64(data(j).ItemArray(10)) > 0 Then
+                                    Eggs = System.Convert.ToInt32(data(j).ItemArray(10).ToString.Substring(0, 3))
+                                    Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(10).ToString.Substring(3, 3))
+                                    strEggs = AddEggString(str, strEggs, Eggs, "..Nematordirus   ")
+                                End If
+
+                                If Convert.ToInt64(data(j).ItemArray(11)) > 0 Then
+                                    Eggs = System.Convert.ToInt32(data(j).ItemArray(11).ToString.Substring(0, 3))
+                                    Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(11).ToString.Substring(3, 3))
+                                    strEggs = AddEggString(str, strEggs, Eggs, "..Capillarid   ")
+                                End If
+
+                                If Convert.ToInt64(data(j).ItemArray(12)) > 0 Then
+                                    Eggs = System.Convert.ToInt32(data(j).ItemArray(12).ToString.Substring(0, 3))
+                                    Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(12).ToString.Substring(3, 3))
+                                    strEggs = AddEggString(str, strEggs, Eggs, "..Moniezid   ")
+                                End If
+
+                                If Convert.ToInt64(data(j).ItemArray(13)) > 0 Then
+                                    Eggs = System.Convert.ToInt32(data(j).ItemArray(13).ToString.Substring(0, 3))
+                                    Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(13).ToString.Substring(3, 3))
+                                    strEggs = AddEggString(str, strEggs, Eggs, "..EPG Unidentifed   ")
+                                End If
+
+                                If Convert.ToInt64(data(j).ItemArray(14)) > 0 Then
+                                    Eggs = System.Convert.ToInt32(data(j).ItemArray(14).ToString.Substring(0, 3))
+                                    Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(14).ToString.Substring(3, 3))
+                                    strEggs = AddEggString(str, strEggs, Eggs, "..E-mac   ")
+                                End If
+
+                                If Convert.ToInt64(data(j).ItemArray(15)) > 0 Then
+                                    Eggs = System.Convert.ToInt32(data(j).ItemArray(15).ToString.Substring(0, 3))
+                                    Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(15).ToString.Substring(3, 3))
+                                    strEggs = AddEggString(str, strEggs, Eggs, "..E-Eivitaesis   ")
+                                End If
+
+                                If Convert.ToInt64(data(j).ItemArray(16)) > 0 Then
+                                    Eggs = System.Convert.ToInt32(data(j).ItemArray(16).ToString.Substring(0, 3))
+                                    Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(16).ToString.Substring(3, 3))
+                                    strEggs = AddEggString(str, strEggs, Eggs, "..E-alpaca   ")
+                                End If
+
+                                If Convert.ToInt64(data(j).ItemArray(17)) > 0 Then
+                                    Eggs = System.Convert.ToInt32(data(j).ItemArray(17).ToString.Substring(0, 3))
+                                    Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(17).ToString.Substring(3, 3))
+                                    strEggs = AddEggString(str, strEggs, Eggs, "..E-lamae    ")
+                                End If
+
+                                If Convert.ToInt64(data(j).ItemArray(18)) > 0 Then
+                                    Eggs = System.Convert.ToInt32(data(j).ItemArray(18).ToString.Substring(0, 3))
+                                    Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(18).ToString.Substring(3, 3))
+                                    strEggs = AddEggString(str, strEggs, Eggs, "..E-punoensis    ")
+                                End If
+
+                                If Convert.ToInt64(data(j).ItemArray(19)) > 0 Then
+                                    Eggs = System.Convert.ToInt32(data(j).ItemArray(19).ToString.Substring(0, 3))
+                                    Eggs = Eggs + System.Convert.ToInt32(data(j).ItemArray(19).ToString.Substring(3, 3))
+                                    strEggs = AddEggString(str, strEggs, Eggs, "..OPG Unidentifed     ")
+                                End If
+
+
+                                'Change the colour if it is a fail and send the string to the report
+                                If backcolour Then
+                                    RichTextBox1.SelectionBackColor = Color.LightSteelBlue
+                                Else
+                                    RichTextBox1.SelectionBackColor = Color.White
+                                End If
+                                backcolour = Not backcolour
+
+                                str = str & strEggs
+                                str = str.PadRight(74, " ")
+                                Dim wwStr As String = WordWrap(str, 75)
+
+                                If (data(j).ItemArray(24) < GlobalVariables.pass) And (Convert.ToInt64(data(j).ItemArray(13)) <= 0) Then
+                                    RichTextBox1.SelectionColor = Color.Black
+                                    RichTextBox1.AppendText(wwStr)
+                                Else
+                                    RichTextBox1.SelectionColor = Color.Red
+                                    RichTextBox1.AppendText(wwStr)
+                                End If
+
                             End If
-
-                        End If
                     Next
                     backcolour = Not backcolour
                     If backcolour Then
@@ -370,21 +396,21 @@ Public Class FormGroupTestReport
                             SplitLine = SplitLine & line.PadRight(maxLengthOfALine, " ") & vbCrLf
                         Else
                             'All lines but not the last line
-                            SplitLine = SplitLine & ("                                      " & line).PadRight(maxLengthOfALine, " ") & vbCrLf
+                            SplitLine = SplitLine & ("                                                 " & line).PadRight(maxLengthOfALine, " ") & vbCrLf
                         End If
                         If lineLength < maxLengthOfALine Then
                             startingPosition += lineLength
                         Else
                             startingPosition += lineLength + 1
                         End If
-                        lineLength = maxLengthOfALine - 39
+                        lineLength = maxLengthOfALine - 51
                     End While
 
                     line = Text.Substring(startingPosition, endingPosition - startingPosition)
                     line = Trim(line)
                     If line <> "" Then
                         'Last line what is left
-                        SplitLine = SplitLine & ("                                      " & line).PadRight(maxLengthOfALine, " ") & vbCrLf
+                        SplitLine = SplitLine & ("                                                 " & line).PadRight(maxLengthOfALine, " ") & vbCrLf
                         startingPosition = endingPosition + 1
                     End If
                 End If
@@ -520,9 +546,26 @@ Public Class FormGroupTestReport
         Dim ReportName As String = GlobalVariables.DbDriveLocation & "Print.rtf"
         RichTextBox1.SaveFile(ReportName)
 
+        GlobalVariables.Email = InputBox("Enter Email address", "Email address", "aig1066@hotmail.co.uk")
+
+        If GlobalVariables.Email = "" Then
+            Exit Sub
+        End If
+        If ValidateEmail(GlobalVariables.Email) = False Then
+            MsgBox("E mail address wrong", vbOKOnly, "Error")
+            Exit Sub
+        End If
 
         FormMain.Email("Worm count database - Farm report", "See attached file for report as requested", ReportName)
     End Sub
+    Public Function ValidateEmail(ByVal strCheck As String) As Boolean
+        Try
+            Dim vEmailAddress As New System.Net.Mail.MailAddress(strCheck)
+        Catch ex As Exception
+            Return False
+        End Try
+        Return True
+    End Function
     Sub EmailgroundThread()
         Try
 

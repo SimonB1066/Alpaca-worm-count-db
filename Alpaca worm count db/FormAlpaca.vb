@@ -39,8 +39,9 @@ Public Class FormAlpaca
         RichTextBox1.AppendText("Parasite and worm egg report" & vbNewLine & vbNewLine)
         RichTextBox1.SelectionFont = New Font("Courier New", 9.75, FontStyle.Regular)
         RichTextBox1.AppendText("Report date   " & DateTime.Today & vbNewLine)
-        RichTextBox1.AppendText("____________________________________________________________" & vbNewLine)
-        RichTextBox1.AppendText("Test date         Total EPG" & vbNewLine)
+        RichTextBox1.AppendText("Test types (MM)= McMasters  (MS)=Modified Stoll's" & vbNewLine & vbNewLine)
+        RichTextBox1.AppendText("______________________________________________________________________" & vbNewLine)
+        RichTextBox1.AppendText("Test date          EPG   OPG  Test  Notes" & vbNewLine)
         RichTextBox1.AppendText(vbNewLine)
 
 
@@ -67,88 +68,95 @@ Public Class FormAlpaca
                 Dim str As String = ""
 
                 str = str & GlobalVariables.ds.Tables("TestResults").Rows(j)("TestDate").ToString.Substring(0, 10)
-                str = str.PadRight(20, " ")
+                str = str.PadRight(18, " ")
 
-                str = str & Total.ToString
+                str = str & GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEPGTotal").ToString.PadLeft(4) & "  " & GlobalVariables.ds.Tables("TestResults").Rows(j)("TestOPGTotal").ToString.PadLeft(4)
                 str = str.PadRight(30, " ")
-
-
-                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestTrichostrongyles")) > 0 Then
-                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestTrichostrongyles").ToString.Substring(0, 2))
-                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestTrichostrongyles").ToString.Substring(2, 2))
-                    strEggs = AddEggString(str, strEggs, Eggs, "..Trichostrongyles  ")
-                End If
-
-                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestTrichurius")) > 0 Then
-                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestTrichurius").ToString.Substring(0, 2))
-                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestTrichurius").ToString.Substring(2, 2))
-                    strEggs = AddEggString(str, strEggs, Eggs, "..Trichurius  ")
-                End If
-
-                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestNematordirus")) > 0 Then
-                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestNematordirus").ToString.Substring(0, 2))
-                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestNematordirus").ToString.Substring(2, 2))
-                    strEggs = AddEggString(str, strEggs, Eggs, "..Nematordirus  ")
-                End If
-
-                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestCapillarid")) > 0 Then
-                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestCapillarid").ToString.Substring(0, 2))
-                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestCapillarid").ToString.Substring(2, 2))
-                    strEggs = AddEggString(str, strEggs, Eggs, "..Capillarid  ")
-                End If
-
-                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestMoniezid")) > 0 Then
-                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestMoniezid").ToString.Substring(0, 2))
-                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestMoniezid").ToString.Substring(2, 2))
-                    strEggs = AddEggString(str, strEggs, Eggs, "..Moniezid  ")
-                End If
-
-                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEmac")) > 0 Then
-                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEmac").ToString.Substring(0, 2))
-                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEmac").ToString.Substring(2, 2))
-                    strEggs = AddEggString(str, strEggs, Eggs, "..E-mac  ")
-                End If
-
-                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEivitaesis")) > 0 Then
-                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEivitaesis").ToString.Substring(0, 2))
-                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEivitaesis").ToString.Substring(2, 2))
-                    strEggs = AddEggString(str, strEggs, Eggs, "..E-ivitaesis  ")
-                End If
-
-                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEalpacae")) > 0 Then
-                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEalpacae").ToString.Substring(0, 2))
-                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEalpacae").ToString.Substring(2, 2))
-                    strEggs = AddEggString(str, strEggs, Eggs, "..E-alpacae  ")
-                End If
-
-                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestElamae")) > 0 Then
-                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestElamae").ToString.Substring(0, 2))
-                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestElamae").ToString.Substring(2, 2))
-                    strEggs = AddEggString(str, strEggs, Eggs, "..E-lamae  ")
-                End If
-
-                If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEpunoensis")) > 0 Then
-                    Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEpunoensis").ToString.Substring(0, 2))
-                    Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEpunoensis").ToString.Substring(2, 2))
-                    strEggs = AddEggString(str, strEggs, Eggs, "..E-punoensis  ")
-                End If
-
-
-                str = str.PadRight(30, " ")
-                str = str & strEggs
-                str = str.PadRight(74, " ")
-
-                Dim wwStr As String = WordWrap(str, 75)
-                RichTextBox1.AppendText(wwStr)
-
-                backcolour = Not backcolour
-                If backcolour Then
-                    RichTextBox1.SelectionBackColor = Color.LightSteelBlue
+                If GlobalVariables.ds.Tables("TestResults").Rows(j)("Name") = "MM" Then
+                    str = str & "MM"
                 Else
-                    RichTextBox1.SelectionBackColor = Color.White
+                    str = str & "MS"
                 End If
 
-            End If
+                str = str.PadRight(36, " ")
+
+
+                If Convert.ToInt64(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestTrichostrongyles")) > 0 Then
+                        Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestTrichostrongyles").ToString.Substring(0, 3))
+                        Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestTrichostrongyles").ToString.Substring(3, 3))
+                        strEggs = AddEggString(str, strEggs, Eggs, "..Trichostrongyles  ")
+                    End If
+
+                    If Convert.ToInt64(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestTrichurius")) > 0 Then
+                        Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestTrichurius").ToString.Substring(0, 3))
+                        Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestTrichurius").ToString.Substring(3, 3))
+                        strEggs = AddEggString(str, strEggs, Eggs, "..Trichurius  ")
+                    End If
+
+                    If Convert.ToInt64(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestNematordirus")) > 0 Then
+                        Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestNematordirus").ToString.Substring(0, 3))
+                        Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestNematordirus").ToString.Substring(3, 3))
+                        strEggs = AddEggString(str, strEggs, Eggs, "..Nematordirus  ")
+                    End If
+
+                    If Convert.ToInt64(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestCapillarid")) > 0 Then
+                        Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestCapillarid").ToString.Substring(0, 3))
+                        Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestCapillarid").ToString.Substring(3, 3))
+                        strEggs = AddEggString(str, strEggs, Eggs, "..Capillarid  ")
+                    End If
+
+                    If Convert.ToInt64(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestMoniezid")) > 0 Then
+                        Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestMoniezid").ToString.Substring(0, 3))
+                        Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestMoniezid").ToString.Substring(3, 3))
+                        strEggs = AddEggString(str, strEggs, Eggs, "..Moniezid  ")
+                    End If
+
+                    If Convert.ToInt64(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEmac")) > 0 Then
+                        Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEmac").ToString.Substring(0, 3))
+                        Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEmac").ToString.Substring(3, 3))
+                        strEggs = AddEggString(str, strEggs, Eggs, "..E-mac  ")
+                    End If
+
+                    If Convert.ToInt16(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEivitaesis")) > 0 Then
+                        Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEivitaesis").ToString.Substring(0, 3))
+                        Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEivitaesis").ToString.Substring(3, 3))
+                        strEggs = AddEggString(str, strEggs, Eggs, "..E-ivitaesis  ")
+                    End If
+
+                    If Convert.ToInt64(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEalpacae")) > 0 Then
+                        Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEalpacae").ToString.Substring(0, 3))
+                        Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEalpacae").ToString.Substring(3, 3))
+                        strEggs = AddEggString(str, strEggs, Eggs, "..E-alpacae  ")
+                    End If
+
+                    If Convert.ToInt64(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestElamae")) > 0 Then
+                        Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestElamae").ToString.Substring(0, 3))
+                        Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestElamae").ToString.Substring(3, 3))
+                        strEggs = AddEggString(str, strEggs, Eggs, "..E-lamae  ")
+                    End If
+
+                    If Convert.ToInt64(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEpunoensis")) > 0 Then
+                        Eggs = System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEpunoensis").ToString.Substring(0, 3))
+                        Eggs = Eggs + System.Convert.ToInt32(GlobalVariables.ds.Tables("TestResults").Rows(j)("TestEpunoensis").ToString.Substring(3, 3))
+                        strEggs = AddEggString(str, strEggs, Eggs, "..E-punoensis  ")
+                    End If
+
+
+                    str = str.PadRight(30, " ")
+                    str = str & strEggs
+                    str = str.PadRight(74, " ")
+
+                    Dim wwStr As String = WordWrap(str, 75)
+                    RichTextBox1.AppendText(wwStr)
+
+                    backcolour = Not backcolour
+                    If backcolour Then
+                        RichTextBox1.SelectionBackColor = Color.LightSteelBlue
+                    Else
+                        RichTextBox1.SelectionBackColor = Color.White
+                    End If
+
+                End If
         Next
 
 

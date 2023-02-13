@@ -31,7 +31,7 @@
     <PublisherName>Simon brookes, Mullacott Alpacas</PublisherName>
     <SuiteName>Mullacott Alpacas</SuiteName>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>12</ApplicationRevision>
     <ApplicationVersion>10.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

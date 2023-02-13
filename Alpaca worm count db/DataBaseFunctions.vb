@@ -26,18 +26,32 @@ Public Class DataBaseFunctions
                     da.Fill(ds, "Alpaca")
                 End Using
 
+                If IsDate(GlobalVariables.ArchiveDate) Then
+                    Using da = New OleDb.OleDbDataAdapter("SELECT * FROM " & "TestGroup WHERE GroupCreated>#" & GlobalVariables.ArchiveDate & "# ORDER BY ID DESC", OpenCon)
+                        Dim tbuilder As New OleDb.OleDbCommandBuilder
+                        tbuilder = New OleDb.OleDbCommandBuilder(da)
+                        da.Fill(ds, "TestGroup")
+                    End Using
 
-                Using da = New OleDb.OleDbDataAdapter("SELECT * FROM " & "TestGroup ORDER BY ID DESC", OpenCon)
-                    Dim tbuilder As New OleDb.OleDbCommandBuilder
-                    tbuilder = New OleDb.OleDbCommandBuilder(da)
-                    da.Fill(ds, "TestGroup")
-                End Using
+                    Using da = New OleDb.OleDbDataAdapter("SELECT * FROM " & "TestResults WHERE TestDate>#" & GlobalVariables.ArchiveDate & "# ORDER BY TestDate DESC", OpenCon)
+                        Dim rbuilder As New OleDb.OleDbCommandBuilder
+                        rbuilder = New OleDb.OleDbCommandBuilder(da)
+                        da.Fill(ds, "TestResults")
+                    End Using
+                Else
+                    Using da = New OleDb.OleDbDataAdapter("SELECT * FROM " & "TestGroup ORDER BY ID DESC", OpenCon)
+                        Dim tbuilder As New OleDb.OleDbCommandBuilder
+                        tbuilder = New OleDb.OleDbCommandBuilder(da)
+                        da.Fill(ds, "TestGroup")
+                    End Using
 
-                Using da = New OleDb.OleDbDataAdapter("SELECT * FROM " & "TestResults ORDER BY TestDate DESC", OpenCon)
-                    Dim rbuilder As New OleDb.OleDbCommandBuilder
-                    rbuilder = New OleDb.OleDbCommandBuilder(da)
-                    da.Fill(ds, "TestResults")
-                End Using
+                    Using da = New OleDb.OleDbDataAdapter("SELECT * FROM " & "TestResults ORDER BY TestDate DESC", OpenCon)
+                        Dim rbuilder As New OleDb.OleDbCommandBuilder
+                        rbuilder = New OleDb.OleDbCommandBuilder(da)
+                        da.Fill(ds, "TestResults")
+                    End Using
+                End If
+
 
 
                 Using da = New OleDb.OleDbDataAdapter("SELECT * FROM " & "GridView", OpenCon)

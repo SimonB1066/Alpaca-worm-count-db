@@ -95,41 +95,41 @@
 
             Label67.Text = foundRow.Item(6)
             Label66.Text = foundRow.Item(7)
-            Chamber1_1.Text = System.Convert.ToInt32(foundRow.Item(8).ToString.Substring(0, 2))
-            Chamber2_1.Text = System.Convert.ToInt32(foundRow.Item(8).ToString.Substring(2, 2))
+            Chamber1_1.Text = System.Convert.ToInt32(foundRow.Item(8).ToString.Substring(0, 3))
+            Chamber2_1.Text = System.Convert.ToInt32(foundRow.Item(8).ToString.Substring(3, 3))
 
-            Chamber1_2.Text = System.Convert.ToInt32(foundRow.Item(9).ToString.Substring(0, 2))
-            Chamber2_2.Text = System.Convert.ToInt32(foundRow.Item(9).ToString.Substring(2, 2))
+            Chamber1_2.Text = System.Convert.ToInt32(foundRow.Item(9).ToString.Substring(0, 3))
+            Chamber2_2.Text = System.Convert.ToInt32(foundRow.Item(9).ToString.Substring(3, 3))
 
-            Chamber1_3.Text = System.Convert.ToInt32(foundRow.Item(10).ToString.Substring(0, 2))
-            Chamber2_3.Text = System.Convert.ToInt32(foundRow.Item(10).ToString.Substring(2, 2))
+            Chamber1_3.Text = System.Convert.ToInt32(foundRow.Item(10).ToString.Substring(0, 3))
+            Chamber2_3.Text = System.Convert.ToInt32(foundRow.Item(10).ToString.Substring(3, 3))
 
-            Chamber1_4.Text = System.Convert.ToInt32(foundRow.Item(11).ToString.Substring(0, 2))
-            Chamber2_4.Text = System.Convert.ToInt32(foundRow.Item(11).ToString.Substring(2, 2))
+            Chamber1_4.Text = System.Convert.ToInt32(foundRow.Item(11).ToString.Substring(0, 3))
+            Chamber2_4.Text = System.Convert.ToInt32(foundRow.Item(11).ToString.Substring(3, 3))
 
-            Chamber1_5.Text = System.Convert.ToInt32(foundRow.Item(12).ToString.Substring(0, 2))
-            Chamber2_5.Text = System.Convert.ToInt32(foundRow.Item(12).ToString.Substring(2, 2))
+            Chamber1_5.Text = System.Convert.ToInt32(foundRow.Item(12).ToString.Substring(0, 3))
+            Chamber2_5.Text = System.Convert.ToInt32(foundRow.Item(12).ToString.Substring(3, 3))
 
-            Chamber1_6.Text = System.Convert.ToInt32(foundRow.Item(13).ToString.Substring(0, 2))
-            Chamber2_6.Text = System.Convert.ToInt32(foundRow.Item(13).ToString.Substring(2, 2))
+            Chamber1_6.Text = System.Convert.ToInt32(foundRow.Item(13).ToString.Substring(0, 3))
+            Chamber2_6.Text = System.Convert.ToInt32(foundRow.Item(13).ToString.Substring(3, 3))
 
-            Chamber1_7.Text = System.Convert.ToInt32(foundRow.Item(14).ToString.Substring(0, 2))
-            Chamber2_7.Text = System.Convert.ToInt32(foundRow.Item(14).ToString.Substring(2, 2))
+            Chamber1_7.Text = System.Convert.ToInt32(foundRow.Item(14).ToString.Substring(0, 3))
+            Chamber2_7.Text = System.Convert.ToInt32(foundRow.Item(14).ToString.Substring(3, 3))
 
-            Chamber1_8.Text = System.Convert.ToInt32(foundRow.Item(15).ToString.Substring(0, 2))
-            Chamber2_8.Text = System.Convert.ToInt32(foundRow.Item(15).ToString.Substring(2, 2))
+            Chamber1_8.Text = System.Convert.ToInt32(foundRow.Item(15).ToString.Substring(0, 3))
+            Chamber2_8.Text = System.Convert.ToInt32(foundRow.Item(15).ToString.Substring(3, 3))
 
-            Chamber1_9.Text = System.Convert.ToInt32(foundRow.Item(16).ToString.Substring(0, 2))
-            Chamber2_9.Text = System.Convert.ToInt32(foundRow.Item(16).ToString.Substring(2, 2))
+            Chamber1_9.Text = System.Convert.ToInt32(foundRow.Item(16).ToString.Substring(0, 3))
+            Chamber2_9.Text = System.Convert.ToInt32(foundRow.Item(16).ToString.Substring(3, 3))
 
-            Chamber1_10.Text = System.Convert.ToInt32(foundRow.Item(17).ToString.Substring(0, 2))
-            Chamber2_10.Text = System.Convert.ToInt32(foundRow.Item(17).ToString.Substring(2, 2))
+            Chamber1_10.Text = System.Convert.ToInt32(foundRow.Item(17).ToString.Substring(0, 3))
+            Chamber2_10.Text = System.Convert.ToInt32(foundRow.Item(17).ToString.Substring(3, 3))
 
-            Chamber1_11.Text = System.Convert.ToInt32(foundRow.Item(18).ToString.Substring(0, 2))
-            Chamber2_11.Text = System.Convert.ToInt32(foundRow.Item(18).ToString.Substring(2, 2))
+            Chamber1_11.Text = System.Convert.ToInt32(foundRow.Item(18).ToString.Substring(0, 3))
+            Chamber2_11.Text = System.Convert.ToInt32(foundRow.Item(18).ToString.Substring(3, 3))
 
-            Chamber1_12.Text = System.Convert.ToInt32(foundRow.Item(19).ToString.Substring(0, 2))
-            Chamber2_12.Text = System.Convert.ToInt32(foundRow.Item(19).ToString.Substring(2, 2))
+            Chamber1_12.Text = System.Convert.ToInt32(foundRow.Item(19).ToString.Substring(0, 3))
+            Chamber2_12.Text = System.Convert.ToInt32(foundRow.Item(19).ToString.Substring(3, 3))
 
 
             EPG1.Text = System.Convert.ToInt32(Chamber1_1.Text) + System.Convert.ToInt32(Chamber2_1.Text)

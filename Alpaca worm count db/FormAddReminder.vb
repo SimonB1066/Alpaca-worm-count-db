@@ -221,74 +221,74 @@ Public Class FormAddReminder
         Dim Eggs As Int16 = 0
         Dim str As String = ""
         If Convert.ToInt16(List(RowNumber).ItemArray(8)) > 0 Then
-            Eggs = List(RowNumber).ItemArray(8).ToString.Substring(0, 2)
-            Eggs = Eggs + List(RowNumber).ItemArray(8).ToString.Substring(2, 2)
+            Eggs = List(RowNumber).ItemArray(8).ToString.Substring(0, 3)
+            Eggs = Eggs + List(RowNumber).ItemArray(8).ToString.Substring(3, 3)
             strEggs = AddEggString(str, strEggs, Eggs, " Trichostrongyles   ")
         End If
 
         If Convert.ToInt16(List(RowNumber).ItemArray(9)) > 0 Then
-            Eggs = List(RowNumber).ItemArray(9).ToString.Substring(0, 2)
-            Eggs = Eggs + List(RowNumber).ItemArray(9).ToString.Substring(2, 2)
+            Eggs = List(RowNumber).ItemArray(9).ToString.Substring(0, 3)
+            Eggs = Eggs + List(RowNumber).ItemArray(9).ToString.Substring(3, 3)
             strEggs = AddEggString(str, strEggs, Eggs, " Trichurius   ")
         End If
 
         If Convert.ToInt16(List(RowNumber).ItemArray(10)) > 0 Then
-            Eggs = List(RowNumber).ItemArray(10).ToString.Substring(0, 2)
-            Eggs = Eggs + List(RowNumber).ItemArray(10).ToString.Substring(2, 2)
+            Eggs = List(RowNumber).ItemArray(10).ToString.Substring(0, 3)
+            Eggs = Eggs + List(RowNumber).ItemArray(10).ToString.Substring(3, 3)
             strEggs = AddEggString(str, strEggs, Eggs, " Nematordirus   ")
         End If
 
         If Convert.ToInt16(List(RowNumber).ItemArray(11)) > 0 Then
-            Eggs = List(RowNumber).ItemArray(11).ToString.Substring(0, 2)
-            Eggs = Eggs + List(RowNumber).ItemArray(11).ToString.Substring(2, 2)
+            Eggs = List(RowNumber).ItemArray(11).ToString.Substring(0, 3)
+            Eggs = Eggs + List(RowNumber).ItemArray(11).ToString.Substring(3, 3)
             strEggs = AddEggString(str, strEggs, Eggs, " Capillarid   ")
         End If
 
         If Convert.ToInt16(List(RowNumber).ItemArray(12)) > 0 Then
-            Eggs = List(RowNumber).ItemArray(12).ToString.Substring(0, 2)
-            Eggs = Eggs + List(RowNumber).ItemArray(12).ToString.Substring(2, 2)
+            Eggs = List(RowNumber).ItemArray(12).ToString.Substring(0, 3)
+            Eggs = Eggs + List(RowNumber).ItemArray(12).ToString.Substring(3, 3)
             strEggs = AddEggString(str, strEggs, Eggs, " Moniezid   ")
         End If
 
         If Convert.ToInt16(List(RowNumber).ItemArray(13)) > 0 Then
-            Eggs = List(RowNumber).ItemArray(13).ToString.Substring(0, 2)
-            Eggs = Eggs + List(RowNumber).ItemArray(13).ToString.Substring(2, 2)
+            Eggs = List(RowNumber).ItemArray(13).ToString.Substring(0, 3)
+            Eggs = Eggs + List(RowNumber).ItemArray(13).ToString.Substring(3, 3)
             strEggs = AddEggString(str, strEggs, Eggs, " Unidentifed   ")
         End If
 
         If Convert.ToInt16(List(RowNumber).ItemArray(14)) > 0 Then
-            Eggs = List(RowNumber).ItemArray(14).ToString.Substring(0, 2)
-            Eggs = Eggs + List(RowNumber).ItemArray(14).ToString.Substring(2, 2)
+            Eggs = List(RowNumber).ItemArray(14).ToString.Substring(0, 3)
+            Eggs = Eggs + List(RowNumber).ItemArray(14).ToString.Substring(3, 3)
             strEggs = AddEggString(str, strEggs, Eggs, " E-mac   ")
         End If
 
         If Convert.ToInt16(List(RowNumber).ItemArray(15)) > 0 Then
-            Eggs = List(RowNumber).ItemArray(15).ToString.Substring(0, 2)
-            Eggs = Eggs + List(RowNumber).ItemArray(15).ToString.Substring(2, 2)
+            Eggs = List(RowNumber).ItemArray(15).ToString.Substring(0, 3)
+            Eggs = Eggs + List(RowNumber).ItemArray(15).ToString.Substring(3, 3)
             strEggs = AddEggString(str, strEggs, Eggs, " E-ivitaesis   ")
         End If
 
         If Convert.ToInt16(List(RowNumber).ItemArray(16)) > 0 Then
-            Eggs = List(RowNumber).ItemArray(16).ToString.Substring(0, 2)
-            Eggs = Eggs + List(RowNumber).ItemArray(16).ToString.Substring(2, 2)
+            Eggs = List(RowNumber).ItemArray(16).ToString.Substring(0, 3)
+            Eggs = Eggs + List(RowNumber).ItemArray(16).ToString.Substring(3, 3)
             strEggs = AddEggString(str, strEggs, Eggs, " E-alpacae   ")
         End If
 
         If Convert.ToInt16(List(RowNumber).ItemArray(17)) > 0 Then
-            Eggs = List(RowNumber).ItemArray(17).ToString.Substring(0, 2)
-            Eggs = Eggs + List(RowNumber).ItemArray(17).ToString.Substring(2, 2)
+            Eggs = List(RowNumber).ItemArray(17).ToString.Substring(0, 3)
+            Eggs = Eggs + List(RowNumber).ItemArray(17).ToString.Substring(3, 3)
             strEggs = AddEggString(str, strEggs, Eggs, " E-lamae   ")
         End If
 
         If Convert.ToInt16(List(RowNumber).ItemArray(18)) > 0 Then
-            Eggs = List(RowNumber).ItemArray(18).ToString.Substring(0, 2)
-            Eggs = Eggs + List(RowNumber).ItemArray(18).ToString.Substring(2, 2)
+            Eggs = List(RowNumber).ItemArray(18).ToString.Substring(0, 3)
+            Eggs = Eggs + List(RowNumber).ItemArray(18).ToString.Substring(3, 3)
             strEggs = AddEggString(str, strEggs, Eggs, " E-punoensis   ")
         End If
 
         If Convert.ToInt16(List(RowNumber).ItemArray(19)) > 0 Then
-            Eggs = List(RowNumber).ItemArray(19).ToString.Substring(0, 2)
-            Eggs = Eggs + List(RowNumber).ItemArray(19).ToString.Substring(2, 2)
+            Eggs = List(RowNumber).ItemArray(19).ToString.Substring(0, 3)
+            Eggs = Eggs + List(RowNumber).ItemArray(19).ToString.Substring(3, 3)
             strEggs = AddEggString(str, strEggs, Eggs, " Unidentifed   ")
         End If
         EggType = strEggs

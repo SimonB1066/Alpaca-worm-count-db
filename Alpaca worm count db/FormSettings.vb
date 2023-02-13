@@ -1,6 +1,7 @@
 ﻿
 
 Imports System.Xml
+Imports System.Globalization
 'Imports Microsoft.Win32
 
 Public Class FormSettings
@@ -388,5 +389,9 @@ Public Class FormSettings
         GlobalVariables.EmailPassword = TextBox15.Text
         FormMain.SetXMLData()
 
+    End Sub
+
+    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
+        GlobalVariables.ArchiveDate = DateTime.ParseExact(DateTimePicker1.Value.ToShortDateString, "dd/MM/yyyy", CultureInfo.CurrentCulture)
     End Sub
 End Class

@@ -18,6 +18,7 @@ Public Class Form3
             Next
             ComboBox2.Text = ""
             ComboBox2.Text = GlobalVariables.Clickgroup.ToString
+            ComboBox1.SelectedIndex = 1
         Catch
         End Try
     End Sub
@@ -81,31 +82,31 @@ Public Class Form3
         GlobalVariables.ds = FormMain.ConnectedDB.PopulateDataSet()        'Put the datainto a dataset
         Dim drow As DataRow = GlobalVariables.ds.Tables("TestResults").NewRow
 
-        drow.Item(1) = DateTime.ParseExact(DateTimePicker1.Value.ToShortDateString, "dd/MM/yyyy", CultureInfo.InvariantCulture)
+        drow.Item(1) = DateTime.ParseExact(DateTimePicker1.Value.ToShortDateString, "dd/MM/yyyy", CultureInfo.CurrentCulture)
         drow.Item(2) = TextBox1.Text
         drow.Item(3) = (ComboBox1.SelectedIndex + 1).ToString
         drow.Item(4) = "0"
         drow.Item(5) = GlobalVariables.TestGroupName
         drow.Item(6) = Label67.Text
         drow.Item(7) = Label66.Text
-        drow.Item(8) = NumericUpDown1.Value.ToString("00.##") & "00"
-        drow.Item(9) = NumericUpDown2.Value.ToString("00.##") & "00"
-        drow.Item(10) = NumericUpDown3.Value.ToString("00.##") & "00"
-        drow.Item(11) = NumericUpDown4.Value.ToString("00.##") & "00"
-        drow.Item(12) = NumericUpDown5.Value.ToString("00.##") & "00"
-        drow.Item(13) = NumericUpDown6.Value.ToString("00.##") & "00"
-        drow.Item(14) = NumericUpDown7.Value.ToString("00.##") & "00"
-        drow.Item(15) = NumericUpDown8.Value.ToString("00.##") & "00"
-        drow.Item(16) = NumericUpDown9.Value.ToString("00.##") & "00"
-        drow.Item(17) = NumericUpDown10.Value.ToString("00.##") & "00"
-        drow.Item(18) = NumericUpDown11.Value.ToString("00.##") & "00"
-        drow.Item(19) = NumericUpDown12.Value.ToString("00.##") & "00"
+        drow.Item(8) = NumericUpDown1.Value.ToString("000.##") & "000"
+        drow.Item(9) = NumericUpDown2.Value.ToString("000.##") & "000"
+        drow.Item(10) = NumericUpDown3.Value.ToString("000.##") & "000"
+        drow.Item(11) = NumericUpDown4.Value.ToString("000.##") & "000"
+        drow.Item(12) = NumericUpDown5.Value.ToString("000.##") & "000"
+        drow.Item(13) = NumericUpDown6.Value.ToString("000.##") & "000"
+        drow.Item(14) = NumericUpDown7.Value.ToString("000.##") & "000"
+        drow.Item(15) = NumericUpDown8.Value.ToString("000.##") & "000"
+        drow.Item(16) = NumericUpDown9.Value.ToString("000.##") & "000"
+        drow.Item(17) = NumericUpDown10.Value.ToString("000.##") & "000"
+        drow.Item(18) = NumericUpDown11.Value.ToString("000.##") & "000"
+        drow.Item(19) = NumericUpDown12.Value.ToString("000.##") & "000"
         drow.Item(20) = "No Treatment"
         drow.Item(21) = "Stoll"
-        drow.Item(24) = CInt(Label67.Text) + CInt(Label66.Text)
+        drow.Item(24) = Convert.ToUInt64(Label67.Text) + Convert.ToUInt64(Label66.Text)
 
         Dim dtUK As Date = DateTime.ParseExact(DateTimePicker1.Value.ToShortDateString, "dd/MM/yyyy", CultureInfo.InvariantCulture)
-        Dim sql As String = "INSERT INTO TestResults (TestDate,TestName,TestFaecalGrade,TestNumber,TestNumberName,TestEPGTotal,TestOPGTotal,TestTrichostrongyles,TestTrichurius,TestNematordirus,TestCapillarid,TestMoniezid,TestEPGUnidentifed,TestEmac,TestEivitaesis,TestEalpacae,TestElamae,TestEpunoensis,TestOPGUnidentifed,TestTreat,Name) VALUES (#" & dtUK & "#,'" & TextBox1.Text & "','" & (ComboBox1.SelectedIndex + 1).ToString & "','" & "0" & "','" & GlobalVariables.TestGroupName & "','" & Label67.Text & "','" & Label66.Text & "','" & drow.Item(8) & "','" & drow.Item(9) & "','" & drow.Item(10) & "','" & drow.Item(11) & "','" & drow.Item(12) & "','" & drow.Item(13) & "','" & drow.Item(14) & "','" & drow.Item(15) & "','" & drow.Item(16) & "','" & drow.Item(17) & "','" & drow.Item(18) & "','" & drow.Item(19) & "','" & drow.Item(20) & "','" & drow.Item(21) & "')"
+        Dim sql As String = "INSERT INTO TestResults (TestDate,TestName,TestFaecalGrade,TestNumber,TestNumberName,TestEPGTotal,TestOPGTotal,TestTrichostrongyles,TestTrichurius,TestNematordirus,TestCapillarid,TestMoniezid,TestEPGUnidentifed,TestEmac,TestEivitaesis,TestEalpacae,TestElamae,TestEpunoensis,TestOPGUnidentifed,TestTreat,Name,EPGTotal) VALUES (#" & dtUK & "#,'" & TextBox1.Text & "','" & (ComboBox1.SelectedIndex + 1).ToString & "','" & "0" & "','" & GlobalVariables.TestGroupName & "','" & Label67.Text & "','" & Label66.Text & "','" & drow.Item(8) & "','" & drow.Item(9) & "','" & drow.Item(10) & "','" & drow.Item(11) & "','" & drow.Item(12) & "','" & drow.Item(13) & "','" & drow.Item(14) & "','" & drow.Item(15) & "','" & drow.Item(16) & "','" & drow.Item(17) & "','" & drow.Item(18) & "','" & drow.Item(19) & "','" & drow.Item(20) & "','" & drow.Item(21) & "','" & drow.Item(24) & "')"
         FormMain.ConnectedDB.UpdateDatabase(sql)
         FormMain.Actionlog("New test result added")
     End Sub

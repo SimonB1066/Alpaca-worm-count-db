@@ -768,6 +768,7 @@ Partial Class FormTest
         Me.NumericUpDown1.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown1.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown1.Location = New System.Drawing.Point(222, 229)
+        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown1.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(100, 40)
@@ -780,6 +781,7 @@ Partial Class FormTest
         Me.NumericUpDown2.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown2.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown2.Location = New System.Drawing.Point(222, 269)
+        Me.NumericUpDown2.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown2.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown2.Name = "NumericUpDown2"
         Me.NumericUpDown2.Size = New System.Drawing.Size(100, 40)
@@ -792,6 +794,7 @@ Partial Class FormTest
         Me.NumericUpDown3.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown3.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown3.Location = New System.Drawing.Point(222, 309)
+        Me.NumericUpDown3.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown3.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown3.Name = "NumericUpDown3"
         Me.NumericUpDown3.Size = New System.Drawing.Size(100, 40)
@@ -804,6 +807,7 @@ Partial Class FormTest
         Me.NumericUpDown4.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown4.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown4.Location = New System.Drawing.Point(222, 349)
+        Me.NumericUpDown4.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown4.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown4.Name = "NumericUpDown4"
         Me.NumericUpDown4.Size = New System.Drawing.Size(100, 40)
@@ -816,6 +820,7 @@ Partial Class FormTest
         Me.NumericUpDown5.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown5.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown5.Location = New System.Drawing.Point(222, 389)
+        Me.NumericUpDown5.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown5.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown5.Name = "NumericUpDown5"
         Me.NumericUpDown5.Size = New System.Drawing.Size(100, 40)
@@ -828,6 +833,7 @@ Partial Class FormTest
         Me.NumericUpDown6.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown6.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown6.Location = New System.Drawing.Point(222, 429)
+        Me.NumericUpDown6.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown6.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown6.Name = "NumericUpDown6"
         Me.NumericUpDown6.Size = New System.Drawing.Size(100, 40)
@@ -840,6 +846,7 @@ Partial Class FormTest
         Me.NumericUpDown7.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown7.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown7.Location = New System.Drawing.Point(222, 469)
+        Me.NumericUpDown7.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown7.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown7.Name = "NumericUpDown7"
         Me.NumericUpDown7.Size = New System.Drawing.Size(100, 40)
@@ -852,6 +859,7 @@ Partial Class FormTest
         Me.NumericUpDown8.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown8.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown8.Location = New System.Drawing.Point(222, 509)
+        Me.NumericUpDown8.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown8.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown8.Name = "NumericUpDown8"
         Me.NumericUpDown8.Size = New System.Drawing.Size(100, 40)
@@ -864,6 +872,7 @@ Partial Class FormTest
         Me.NumericUpDown9.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown9.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown9.Location = New System.Drawing.Point(222, 549)
+        Me.NumericUpDown9.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown9.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown9.Name = "NumericUpDown9"
         Me.NumericUpDown9.Size = New System.Drawing.Size(100, 40)
@@ -876,6 +885,7 @@ Partial Class FormTest
         Me.NumericUpDown10.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown10.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown10.Location = New System.Drawing.Point(222, 589)
+        Me.NumericUpDown10.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown10.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown10.Name = "NumericUpDown10"
         Me.NumericUpDown10.Size = New System.Drawing.Size(100, 40)
@@ -888,7 +898,8 @@ Partial Class FormTest
         Me.NumericUpDown11.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown11.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown11.InterceptArrowKeys = False
-        Me.NumericUpDown11.Location = New System.Drawing.Point(222, 669)
+        Me.NumericUpDown11.Location = New System.Drawing.Point(222, 629)
+        Me.NumericUpDown11.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown11.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown11.Name = "NumericUpDown11"
         Me.NumericUpDown11.Size = New System.Drawing.Size(100, 40)
@@ -900,7 +911,8 @@ Partial Class FormTest
         Me.NumericUpDown12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.NumericUpDown12.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown12.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.NumericUpDown12.Location = New System.Drawing.Point(222, 629)
+        Me.NumericUpDown12.Location = New System.Drawing.Point(222, 669)
+        Me.NumericUpDown12.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown12.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown12.Name = "NumericUpDown12"
         Me.NumericUpDown12.Size = New System.Drawing.Size(100, 40)
@@ -913,6 +925,7 @@ Partial Class FormTest
         Me.NumericUpDown13.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown13.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown13.Location = New System.Drawing.Point(321, 229)
+        Me.NumericUpDown13.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown13.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown13.Name = "NumericUpDown13"
         Me.NumericUpDown13.Size = New System.Drawing.Size(100, 40)
@@ -925,6 +938,7 @@ Partial Class FormTest
         Me.NumericUpDown14.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown14.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown14.Location = New System.Drawing.Point(321, 269)
+        Me.NumericUpDown14.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown14.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown14.Name = "NumericUpDown14"
         Me.NumericUpDown14.Size = New System.Drawing.Size(100, 40)
@@ -937,6 +951,7 @@ Partial Class FormTest
         Me.NumericUpDown15.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown15.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown15.Location = New System.Drawing.Point(321, 309)
+        Me.NumericUpDown15.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown15.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown15.Name = "NumericUpDown15"
         Me.NumericUpDown15.Size = New System.Drawing.Size(100, 40)
@@ -949,6 +964,7 @@ Partial Class FormTest
         Me.NumericUpDown16.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown16.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown16.Location = New System.Drawing.Point(321, 349)
+        Me.NumericUpDown16.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown16.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown16.Name = "NumericUpDown16"
         Me.NumericUpDown16.Size = New System.Drawing.Size(100, 40)
@@ -961,6 +977,7 @@ Partial Class FormTest
         Me.NumericUpDown17.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown17.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown17.Location = New System.Drawing.Point(321, 389)
+        Me.NumericUpDown17.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown17.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown17.Name = "NumericUpDown17"
         Me.NumericUpDown17.Size = New System.Drawing.Size(100, 40)
@@ -973,6 +990,7 @@ Partial Class FormTest
         Me.NumericUpDown18.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown18.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown18.Location = New System.Drawing.Point(321, 429)
+        Me.NumericUpDown18.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown18.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown18.Name = "NumericUpDown18"
         Me.NumericUpDown18.Size = New System.Drawing.Size(100, 40)
@@ -985,6 +1003,7 @@ Partial Class FormTest
         Me.NumericUpDown19.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown19.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown19.Location = New System.Drawing.Point(321, 469)
+        Me.NumericUpDown19.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown19.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown19.Name = "NumericUpDown19"
         Me.NumericUpDown19.Size = New System.Drawing.Size(100, 40)
@@ -997,6 +1016,7 @@ Partial Class FormTest
         Me.NumericUpDown20.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown20.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown20.Location = New System.Drawing.Point(321, 509)
+        Me.NumericUpDown20.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown20.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown20.Name = "NumericUpDown20"
         Me.NumericUpDown20.Size = New System.Drawing.Size(100, 40)
@@ -1009,6 +1029,7 @@ Partial Class FormTest
         Me.NumericUpDown21.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown21.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown21.Location = New System.Drawing.Point(321, 549)
+        Me.NumericUpDown21.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown21.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown21.Name = "NumericUpDown21"
         Me.NumericUpDown21.Size = New System.Drawing.Size(100, 40)
@@ -1021,6 +1042,7 @@ Partial Class FormTest
         Me.NumericUpDown22.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown22.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown22.Location = New System.Drawing.Point(321, 589)
+        Me.NumericUpDown22.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown22.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown22.Name = "NumericUpDown22"
         Me.NumericUpDown22.Size = New System.Drawing.Size(100, 40)
@@ -1033,6 +1055,7 @@ Partial Class FormTest
         Me.NumericUpDown23.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown23.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown23.Location = New System.Drawing.Point(321, 629)
+        Me.NumericUpDown23.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown23.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown23.Name = "NumericUpDown23"
         Me.NumericUpDown23.Size = New System.Drawing.Size(100, 40)
@@ -1045,6 +1068,7 @@ Partial Class FormTest
         Me.NumericUpDown24.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown24.ForeColor = System.Drawing.SystemColors.ControlText
         Me.NumericUpDown24.Location = New System.Drawing.Point(321, 669)
+        Me.NumericUpDown24.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown24.MinimumSize = New System.Drawing.Size(80, 0)
         Me.NumericUpDown24.Name = "NumericUpDown24"
         Me.NumericUpDown24.Size = New System.Drawing.Size(100, 40)
